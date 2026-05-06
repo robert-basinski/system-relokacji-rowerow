@@ -1,0 +1,71 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.6",
+  "section_scope": "station_priority_and_daily_plan_layer",
+  "source_grain": "day_station",
+  "output_grain": "day_station",
+  "source_object": "step6_63_daily_plan_df",
+  "output_object": "step6_65_daily_plan_output_df",
+  "output_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/6_Panel dyspozytora i rekomendacje relokacji rowerów/outputs_dispatcher_panel/b6_31_dispatcher_daily_plan.parquet",
+  "key_columns": [
+    "activity_date",
+    "representative_station_id"
+  ],
+  "rank_column": "daily_plan_rank",
+  "main_output_fields": [
+    "station_name",
+    "priority_level",
+    "problem_type",
+    "recommended_action",
+    "highest_risk_hour_label",
+    "estimated_relocation_label",
+    "recommendation_confidence",
+    "decision_reason",
+    "expected_business_impact"
+  ],
+  "expected_business_impact_policy": {
+    "uses_money_roi": false,
+    "uses_operational_impact_proxy": true,
+    "main_formula": "problem_direction_share_of_day * station_business_scale",
+    "station_business_scale_candidates": [
+      "total_departures",
+      "total_returns",
+      "estimated_capacity",
+      "highest_risk_hour_absolute_net_flow",
+      "highest_risk_hour_absolute_cumulative_net_flow"
+    ]
+  },
+  "sorting_policy": {
+    "primary_sort": "expected_business_impact",
+    "secondary_sort": "priority_score",
+    "tertiary_sort": "estimated_relocation_units",
+    "quaternary_sort": "highest_risk_hour_score"
+  },
+  "main_screen_policy": {
+    "show_operational_language": true,
+    "show_raw_model_fields": false,
+    "show_money_roi_claim": false
+  },
+  "observed_priority_levels": [
+    "high",
+    "low",
+    "medium",
+    "very_high"
+  ],
+  "observed_confidence_levels": [
+    "high",
+    "low",
+    "medium"
+  ],
+  "observed_recommended_actions": [
+    "check_station_state",
+    "deliver_bikes"
+  ],
+  "output_row_count": 219071,
+  "output_column_count": 30,
+  "unique_date_count": 839,
+  "unique_station_count": 344,
+  "duplicate_key_count": 0,
+  "duplicate_rank_count": 0,
+  "consistency_review_count": 0
+}

@@ -1,0 +1,22 @@
+{
+  "app_name": "aplikacja_dzien_stacja.py",
+  "technology": "streamlit",
+  "entrypoint": "/root/projects/6_samodzielny_projekt_koncowy_wsl/5_Aplikacja_uzytkowa_i_operacyjne_uzycie_modelu/aplikacja_dzien_stacja.py",
+  "local_url": "http://localhost:8501",
+  "required_artifacts": {
+    "best_model": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_best_model.joblib",
+    "inference_config": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_inference_config.json",
+    "feature_importance": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_feature_importance.parquet",
+    "app_handoff": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/outputs_dzien_stacja/b4u_05_app_handoff.json",
+    "runtime_predictions": "/root/projects/6_samodzielny_projekt_koncowy_wsl/5_Aplikacja_uzytkowa_i_operacyjne_uzycie_modelu/app_runtime/b5_07_runtime_predictions.parquet",
+    "runtime_runlog": "/root/projects/6_samodzielny_projekt_koncowy_wsl/5_Aplikacja_uzytkowa_i_operacyjne_uzycie_modelu/app_runtime/b5_07_app_runlog.json",
+    "checklist": "/root/projects/6_samodzielny_projekt_koncowy_wsl/5_Aplikacja_uzytkowa_i_operacyjne_uzycie_modelu/app_runtime/b5_07_app_checklist.json"
+  },
+  "supported_scoring_modes": [
+    "latest_available",
+    "selected_date"
+  ],
+  "decision_threshold": 0.55,
+  "current_scoring_date": "2020-10-31",
+  "generated_at_utc": "2026-04-22T18:07:05.517250+00:00"
+}

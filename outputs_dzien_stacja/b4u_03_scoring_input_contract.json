@@ -1,0 +1,171 @@
+{
+  "section_name": "4.3",
+  "scoring_date_mode": "latest_available",
+  "selected_scoring_date": "2020-10-31",
+  "source_model_ready_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/3_feature_screening/b3_13_model_ready_dataset.parquet",
+  "source_null_semantics_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/3_feature_screening/b3_13_null_semantics.parquet",
+  "decision_threshold": 0.55,
+  "key_columns": [
+    "activity_date",
+    "station_id"
+  ],
+  "feature_columns": [
+    "alert_hours_roll_sum_14",
+    "alert_hours_lag_1",
+    "alert_severity_roll_max_7",
+    "consecutive_alert_days_before_t",
+    "alert_lag_1",
+    "alert_lag_2",
+    "alert_lag_3",
+    "alert_lag_7",
+    "deficit_alert_lag_1",
+    "high_severity_alert_last_7d",
+    "hub_flag",
+    "is_any_missing_signal",
+    "is_business_free_day",
+    "is_cold_start",
+    "is_cold_start_x_persona__commuter",
+    "is_cold_start_x_persona__mixed_other",
+    "is_cold_start_x_persona__utility_short_trip",
+    "is_first_two_weeks_station",
+    "is_first_week_station",
+    "is_holiday",
+    "is_holiday_x_hub_flag",
+    "is_long_weekend_window",
+    "is_missing_alert_history",
+    "is_missing_history",
+    "is_missing_returns_history",
+    "is_month_end",
+    "is_month_start",
+    "is_post_holiday",
+    "is_pre_holiday",
+    "is_special_day_cluster",
+    "is_weekend",
+    "is_weekend_x_persona__commuter",
+    "is_weekend_x_persona__mixed_other",
+    "is_weekend_x_persona__utility_short_trip"
+  ],
+  "feature_count": 34,
+  "record_count": 326,
+  "station_count": 326,
+  "excluded_non_model_columns": [
+    {
+      "excluded_column_name": "activity_date",
+      "is_forbidden_contract_column": 1
+    },
+    {
+      "excluded_column_name": "split_name",
+      "is_forbidden_contract_column": 1
+    },
+    {
+      "excluded_column_name": "station_id",
+      "is_forbidden_contract_column": 1
+    }
+  ],
+  "review_flagged_null_features": [
+    "is_cold_start"
+  ],
+  "source_artifact_inventory": [
+    {
+      "artifact_name": "b3_13_model_ready_dataset.parquet",
+      "artifact_role": "model_ready_source_dataset",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/3_feature_screening/b3_13_model_ready_dataset.parquet",
+      "exists": 1,
+      "row_count": 218222,
+      "column_count": 38
+    },
+    {
+      "artifact_name": "b3_13_null_semantics.parquet",
+      "artifact_role": "null_semantics_contract",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/3_feature_screening/b3_13_null_semantics.parquet",
+      "exists": 1,
+      "row_count": 34,
+      "column_count": 17
+    }
+  ],
+  "scoring_date_mode_summary": [
+    {
+      "scoring_date_mode": "latest_available",
+      "selected_scoring_date_input": null,
+      "required_key_column_count": 2,
+      "expected_feature_count": 34,
+      "available_feature_count": 34,
+      "missing_feature_count": 0,
+      "decision_threshold": 0.55,
+      "contract_ready": 1
+    }
+  ],
+  "scoring_date_summary": [
+    {
+      "scoring_date_mode": "latest_available",
+      "selected_scoring_date": "2020-10-31T00:00:00",
+      "min_available_scoring_date": "2017-05-02T00:00:00",
+      "max_available_scoring_date": "2020-10-31T00:00:00",
+      "available_scoring_date_count": 826,
+      "scoring_date_ready": 1
+    }
+  ],
+  "scoring_batch_summary": [
+    {
+      "selected_scoring_date": "2020-10-31T00:00:00",
+      "record_count": 326,
+      "station_count": 326,
+      "model_feature_count": 34,
+      "non_model_column_count": 3,
+      "duplicate_key_count": 0,
+      "scoring_batch_ready": 1
+    }
+  ],
+  "null_semantics_summary": [
+    {
+      "feature_key_column": "column_name",
+      "expected_feature_count": 34,
+      "available_feature_count": 34,
+      "duplicate_feature_definition_count": 0,
+      "missing_feature_definition_count": 0,
+      "null_semantics_ready": 1
+    }
+  ],
+  "model_input_summary": [
+    {
+      "selected_scoring_date": "2020-10-31T00:00:00",
+      "record_count": 326,
+      "feature_count_from_contract": 34,
+      "feature_count_from_input_matrix": 34,
+      "duplicate_contract_feature_count": 0,
+      "duplicate_input_column_count": 0,
+      "missing_batch_feature_count": 0,
+      "contract_order_consistent": 1,
+      "model_object_feature_count": 34,
+      "model_object_order_consistent": 1,
+      "model_input_ready": 1
+    }
+  ],
+  "type_and_null_summary": [
+    {
+      "selected_scoring_date": "2020-10-31T00:00:00",
+      "record_count": 326,
+      "feature_count": 34,
+      "model_dtype_compatible_feature_count": 34,
+      "incompatible_dtype_feature_count": 0,
+      "features_with_nulls_count": 1,
+      "review_flagged_null_feature_count": 1,
+      "review_attention_required": 1,
+      "type_and_null_validation_ready": 1
+    }
+  ],
+  "anti_leakage_summary": [
+    {
+      "scoring_date_mode": "latest_available",
+      "selected_scoring_date": "2020-10-31T00:00:00",
+      "record_count": 326,
+      "model_feature_count": 34,
+      "non_model_column_count_in_batch": 3,
+      "forbidden_columns_present_in_batch_count": 3,
+      "forbidden_columns_present_in_model_input_count": 0,
+      "keyword_flagged_model_column_count": 0,
+      "anti_leakage_ready": 1,
+      "scoring_input_ready": 1
+    }
+  ]
+}

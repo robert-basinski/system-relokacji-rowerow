@@ -1,0 +1,245 @@
+{
+  "block_name": "5",
+  "block_title": "Aplikacja użytkowa i operacyjne użycie modelu dziennego",
+  "section_name": "5.1",
+  "project_root": "/root/projects/6_samodzielny_projekt_koncowy_wsl",
+  "block5_dir": "/root/projects/6_samodzielny_projekt_koncowy_wsl/5_Aplikacja_uzytkowa_i_operacyjne_uzycie_modelu",
+  "app_file_name": "aplikacja_dzien_stacja.py",
+  "app_file_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/5_Aplikacja_uzytkowa_i_operacyjne_uzycie_modelu/aplikacja_dzien_stacja.py",
+  "input_model_package_dir": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package",
+  "outputs_dir": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/outputs_dzien_stacja",
+  "db_dir": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/db_scoring",
+  "application_technology": "streamlit",
+  "cache_requirements": {
+    "cache_resource_required": true,
+    "cache_data_required": true,
+    "session_state_required": true
+  },
+  "architecture_rules": {
+    "uses_only_prepared_artifacts": true,
+    "no_new_model_training": true,
+    "no_new_target_building": true,
+    "no_hourly_prediction": true,
+    "fixed_threshold_required": true
+  },
+  "directory_inventory": [
+    {
+      "directory_name": "project_root",
+      "directory_role": "application_project_root",
+      "directory_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl",
+      "exists": 1,
+      "is_required": 1
+    },
+    {
+      "directory_name": "block5_dir",
+      "directory_role": "application_notebook_location",
+      "directory_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/5_Aplikacja_uzytkowa_i_operacyjne_uzycie_modelu",
+      "exists": 1,
+      "is_required": 1
+    },
+    {
+      "directory_name": "input_model_package",
+      "directory_role": "frozen_model_package",
+      "directory_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package",
+      "exists": 1,
+      "is_required": 1
+    },
+    {
+      "directory_name": "outputs_dzien_stacja",
+      "directory_role": "application_output_layer",
+      "directory_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/outputs_dzien_stacja",
+      "exists": 1,
+      "is_required": 1
+    },
+    {
+      "directory_name": "db_scoring",
+      "directory_role": "application_runtime_storage",
+      "directory_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/db_scoring",
+      "exists": 1,
+      "is_required": 1
+    }
+  ],
+  "source_inventory": [
+    {
+      "source_name": "aplikacja_dzien_stacja.py",
+      "source_role": "application_script_target",
+      "source_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/5_Aplikacja_uzytkowa_i_operacyjne_uzycie_modelu/aplikacja_dzien_stacja.py",
+      "exists": 0,
+      "is_required": 0
+    },
+    {
+      "source_name": "b4_15_best_model.joblib",
+      "source_role": "trained_model",
+      "source_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_best_model.joblib",
+      "exists": 1,
+      "is_required": 1
+    },
+    {
+      "source_name": "b4_15_inference_config.json",
+      "source_role": "inference_config",
+      "source_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_inference_config.json",
+      "exists": 1,
+      "is_required": 1
+    },
+    {
+      "source_name": "b4_15_feature_importance.parquet",
+      "source_role": "feature_importance_ranking",
+      "source_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_feature_importance.parquet",
+      "exists": 1,
+      "is_required": 1
+    },
+    {
+      "source_name": "b4u_05_predictions_for_app.parquet",
+      "source_role": "app_ready_predictions",
+      "source_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/outputs_dzien_stacja/b4u_05_predictions_for_app.parquet",
+      "exists": 1,
+      "is_required": 1
+    },
+    {
+      "source_name": "b4u_05_app_handoff.json",
+      "source_role": "application_handoff_contract",
+      "source_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/outputs_dzien_stacja/b4u_05_app_handoff.json",
+      "exists": 1,
+      "is_required": 1
+    }
+  ],
+  "architecture_summary": [
+    {
+      "app_file_exists": 0,
+      "app_build_target_defined": 1,
+      "required_directory_count": 5,
+      "required_directory_present_count": 5,
+      "required_source_count": 5,
+      "required_source_present_count": 5,
+      "cache_resource_required": 1,
+      "cache_data_required": 1,
+      "app_environment_ready": 1
+    }
+  ],
+  "app_handoff_summary": [
+    {
+      "section_name": "4.5",
+      "app_technology": "streamlit",
+      "model_name": "lightgbm_tuned",
+      "model_release_tag": "b4_15",
+      "selected_scoring_date": "2020-10-31T00:00:00",
+      "scoring_date_mode": "latest_available",
+      "available_scoring_date_min": "2017-05-02T00:00:00",
+      "available_scoring_date_max": "2020-10-31T00:00:00",
+      "available_scoring_date_count": 826,
+      "record_count": 326,
+      "station_count": 326,
+      "applied_threshold": 0.55,
+      "app_contract_ready": 1
+    }
+  ],
+  "supported_scoring_modes": [
+    {
+      "scoring_mode": "latest_available",
+      "is_expected_mode": 1
+    },
+    {
+      "scoring_mode": "selected_date",
+      "is_expected_mode": 1
+    }
+  ],
+  "interaction_contract_summary": [
+    {
+      "app_output_column_count": 14,
+      "context_column_count": 7,
+      "explainability_column_count": 3,
+      "filter_count": 5,
+      "sort_rule_count": 2,
+      "technical_panel_defined": 1,
+      "interaction_contract_ready": 1
+    }
+  ],
+  "handoff_payload_reference": {
+    "section_name": "4.5",
+    "app_file_name": "aplikacja_dzien_stacja.py",
+    "app_file_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/aplikacja_dzien_stacja.py",
+    "app_technology": "streamlit",
+    "model_name": "lightgbm_tuned",
+    "model_release_tag": "b4_15",
+    "selected_scoring_date": "2020-10-31",
+    "scoring_date_mode": "latest_available",
+    "supported_scoring_modes": [
+      "latest_available",
+      "selected_date"
+    ],
+    "available_scoring_date_min": "2017-05-02",
+    "available_scoring_date_max": "2020-10-31",
+    "available_scoring_date_count": 826,
+    "applied_threshold": 0.55,
+    "record_count": 326,
+    "station_count": 326,
+    "positive_prediction_count": 303,
+    "positive_prediction_share": 0.9294478527607362,
+    "predictions_for_app_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/outputs_dzien_stacja/b4u_05_predictions_for_app.parquet",
+    "feature_importance_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_feature_importance.parquet",
+    "app_output_columns": [
+      "activity_date",
+      "station_id",
+      "predicted_probability",
+      "predicted_label",
+      "scoring_timestamp",
+      "model_release_tag",
+      "applied_threshold",
+      "hub_flag",
+      "is_cold_start",
+      "is_holiday",
+      "is_business_free_day",
+      "alert_hours_roll_sum_14",
+      "alert_hours_lag_1",
+      "consecutive_alert_days_before_t"
+    ],
+    "context_columns": [
+      "hub_flag",
+      "is_cold_start",
+      "is_holiday",
+      "is_business_free_day",
+      "alert_hours_roll_sum_14",
+      "alert_hours_lag_1",
+      "consecutive_alert_days_before_t"
+    ],
+    "explainability_columns": [
+      "alert_hours_roll_sum_14",
+      "alert_hours_lag_1",
+      "consecutive_alert_days_before_t"
+    ],
+    "sort_order": [
+      {
+        "column": "predicted_probability",
+        "ascending": false
+      },
+      {
+        "column": "station_id",
+        "ascending": true
+      }
+    ],
+    "filters_supported": [
+      "station_id",
+      "hub_flag",
+      "predicted_label",
+      "is_cold_start",
+      "is_holiday"
+    ],
+    "technical_panel_source": {
+      "feature_importance_file": "b4_15_feature_importance.parquet",
+      "ranking_column": "consensus_rank"
+    },
+    "app_dataset_summary": [
+      {
+        "model_name": "lightgbm_tuned",
+        "model_release_tag": "b4_15",
+        "selected_scoring_date": "2020-10-31T00:00:00",
+        "record_count": 326,
+        "station_count": 326,
+        "positive_prediction_count": 303,
+        "context_column_count": 7,
+        "duplicate_key_count": 0,
+        "app_dataset_ready": 1
+      }
+    ]
+  }
+}

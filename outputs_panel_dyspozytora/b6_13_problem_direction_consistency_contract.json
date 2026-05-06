@@ -1,0 +1,17 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.2",
+  "contract_scope": "daily_problem_direction_consistency",
+  "grain": "day_station",
+  "source_object": "step6_25_daily_signal_summary_df",
+  "key_columns": [
+    "activity_date",
+    "representative_station_id"
+  ],
+  "output_field": "problem_type",
+  "allowed_values_observed": [
+    "bike_shortage_risk",
+    "mixed_risk"
+  ],
+  "consistency_review_count": 0
+}

@@ -1,0 +1,36 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.4",
+  "section_scope": "highest_risk_hour_layer",
+  "hourly_source_object": "step6_24_problem_direction_hourly_df",
+  "daily_source_object": "step6_34_operational_recommendation_output_df",
+  "hourly_grain": "hour_station",
+  "output_grain": "day_station",
+  "output_fields": [
+    "highest_risk_hour",
+    "highest_risk_hour_label",
+    "highest_risk_hour_score",
+    "highest_risk_hour_problem_type"
+  ],
+  "risk_score_components": [
+    "problem_signal_strength",
+    "problem_direction_sort_score",
+    "departure_side_signal",
+    "return_side_signal",
+    "net_flow_hour",
+    "cumulative_net_flow",
+    "occupancy_proxy",
+    "free_capacity_proxy"
+  ],
+  "main_screen_policy": {
+    "show_single_hour_or_window": true,
+    "show_all_hours_on_main_screen": false
+  },
+  "selection_policy": {
+    "primary_sort": "problem_signal_strength",
+    "secondary_sort": "problem_direction_sort_score",
+    "tertiary_sort": "absolute_net_flow_hour",
+    "quaternary_sort": "absolute_cumulative_net_flow",
+    "tie_breaker": "earliest_hour"
+  }
+}

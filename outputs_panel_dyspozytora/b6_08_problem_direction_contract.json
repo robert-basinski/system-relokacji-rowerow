@@ -1,0 +1,58 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.2",
+  "section_scope": "problem_direction_layer",
+  "main_source_role": "main_hourly_alert_source",
+  "main_source_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/station_alert_hour_df.parquet",
+  "grain": "hour_station_to_station_direction",
+  "output_field": "problem_type",
+  "allowed_values": [
+    "bike_shortage_risk",
+    "dock_shortage_risk",
+    "mixed_risk",
+    "no_clear_signal"
+  ],
+  "direction_rules": [
+    {
+      "problem_type": "bike_shortage_risk",
+      "primary_signal": "is_stockout_departure",
+      "supporting_signals": [
+        "departures_hourly",
+        "net_flow_hour",
+        "cumulative_net_flow",
+        "occupancy_proxy"
+      ]
+    },
+    {
+      "problem_type": "dock_shortage_risk",
+      "primary_signal": "is_stockout_return",
+      "supporting_signals": [
+        "returns_hourly",
+        "net_flow_hour",
+        "cumulative_net_flow",
+        "free_capacity_proxy"
+      ]
+    },
+    {
+      "problem_type": "mixed_risk",
+      "primary_signal": "is_stockout_departure_and_is_stockout_return",
+      "supporting_signals": [
+        "departures_hourly",
+        "returns_hourly",
+        "net_flow_hour",
+        "free_capacity_proxy"
+      ]
+    },
+    {
+      "problem_type": "no_clear_signal",
+      "primary_signal": "weak_or_missing_direction_signal",
+      "supporting_signals": []
+    }
+  ],
+  "main_screen_mapping_later_in_app": {
+    "bike_shortage_risk": "bike shortage",
+    "dock_shortage_risk": "dock shortage",
+    "mixed_risk": "mixed risk",
+    "no_clear_signal": "check station state"
+  }
+}

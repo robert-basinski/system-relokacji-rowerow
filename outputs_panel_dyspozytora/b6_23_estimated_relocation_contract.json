@@ -1,0 +1,54 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.5",
+  "section_scope": "estimated_relocation_layer",
+  "source_object": "step6_44_highest_risk_hour_output_df",
+  "source_grain": "day_station",
+  "output_grain": "day_station",
+  "input_fields": [
+    "recommended_action",
+    "problem_type",
+    "estimated_capacity",
+    "departure_signal_hours",
+    "return_signal_hours",
+    "problem_direction_score",
+    "problem_direction_share_of_day",
+    "highest_risk_hour_score",
+    "highest_risk_hour_absolute_net_flow",
+    "highest_risk_hour_absolute_cumulative_net_flow",
+    "min_occupancy_proxy",
+    "max_occupancy_proxy",
+    "min_free_capacity_proxy",
+    "max_free_capacity_proxy"
+  ],
+  "output_fields": [
+    "estimated_relocation_units",
+    "estimated_relocation_min",
+    "estimated_relocation_max",
+    "estimated_relocation_label",
+    "relocation_direction",
+    "relocation_sanity_limit"
+  ],
+  "allowed_relocation_directions": [
+    "deliver",
+    "remove",
+    "check"
+  ],
+  "action_mapping": {
+    "deliver_bikes": "deliver",
+    "remove_bikes": "remove",
+    "check_station_state": "check"
+  },
+  "quantity_policy": {
+    "uses_estimated_relocation": true,
+    "uses_exact_live_inventory": false,
+    "minimum_relocation_units": 0,
+    "maximum_share_of_estimated_capacity": 0.5,
+    "range_width_units": 1
+  },
+  "sanity_policy": {
+    "estimated_relocation_units_lte_sanity_limit": true,
+    "estimated_relocation_min_gte_zero": true,
+    "estimated_relocation_max_gte_estimated_relocation_min": true
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "feedback_log_version": "1.0",
+  "feedback_entries": [],
+  "entries": [
+    {
+      "created_at_utc": "2026-05-06T11:17:05.373362+00:00",
+      "activity_date": "2017-05-02",
+      "task_rank": 1,
+      "station_name": "Itämerentori",
+      "microzone_id": "MZ_0045",
+      "priority": "bardzo wysoki",
+      "problem": "ryzyko braku rowerów",
+      "recommended_action": "dowieź rowery",
+      "relocation": "dowieź 18–20 rowerów",
+      "risk_hour": "17:00",
+      "confidence": "wysoka",
+      "status": "przyjęte"
+    },
+    {
+      "created_at_utc": "2026-05-06T11:24:02.739010+00:00",
+      "activity_date": "2017-05-02",
+      "task_rank": 1,
+      "station_name": "Itämerentori",
+      "microzone_id": "MZ_0045",
+      "priority": "bardzo wysoki",
+      "problem": "ryzyko braku rowerów",
+      "recommended_action": "dowieź rowery",
+      "relocation": "dowieź 18–20 rowerów",
+      "risk_hour": "17:00",
+      "confidence": "wysoka",
+      "status": "wykonane"
+    },
+    {
+      "created_at_utc": "2026-05-06T11:27:40.393088+00:00",
+      "activity_date": "2017-05-02",
+      "task_rank": 2,
+      "station_name": "Kamppi (M)",
+      "microzone_id": "MZ_0064",
+      "priority": "bardzo wysoki",
+      "problem": "ryzyko braku rowerów",
+      "recommended_action": "dowieź rowery",
+      "relocation": "dowieź 9–11 rowerów",
+      "risk_hour": "16:00",
+      "confidence": "wysoka",
+      "status": "błąd w terenie"
+    },
+    {
+      "created_at_utc": "2026-05-06T11:56:25.663472+00:00",
+      "activity_date": "2017-05-02",
+      "task_rank": 3,
+      "station_name": "Töölönlahdenkatu",
+      "microzone_id": "MZ_0067",
+      "priority": "bardzo wysoki",
+      "problem": "ryzyko braku rowerów",
+      "recommended_action": "dowieź rowery",
+      "relocation": "dowieź 11–13 rowerów",
+      "risk_hour": "19:00",
+      "confidence": "wysoka",
+      "status": "przyjęte"
+    },
+    {
+      "created_at_utc": "2026-05-06T11:57:29.574289+00:00",
+      "activity_date": "2017-05-02",
+      "task_rank": 3,
+      "station_name": "Töölönlahdenkatu",
+      "microzone_id": "MZ_0067",
+      "priority": "bardzo wysoki",
+      "problem": "ryzyko braku rowerów",
+      "recommended_action": "dowieź rowery",
+      "relocation": "dowieź 11–13 rowerów",
+      "risk_hour": "19:00",
+      "confidence": "wysoka",
+      "status": "wykonane"
+    },
+    {
+      "created_at_utc": "2026-05-06T11:59:14.177030+00:00",
+      "activity_date": "2017-05-02",
+      "task_rank": 4,
+      "station_name": "Narinkka",
+      "microzone_id": "MZ_0067",
+      "priority": "bardzo wysoki",
+      "problem": "ryzyko braku rowerów",
+      "recommended_action": "dowieź rowery",
+      "relocation": "dowieź 7–9 rowerów",
+      "risk_hour": "18:00",
+      "confidence": "wysoka",
+      "status": "przyjęte"
+    }
+  ]
+}

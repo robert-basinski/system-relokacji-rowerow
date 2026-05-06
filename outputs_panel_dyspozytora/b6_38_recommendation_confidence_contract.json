@@ -1,0 +1,32 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.8",
+  "section_scope": "recommendation_confidence_layer",
+  "source_object": "step6_76_daily_plan_with_microzone_output_df",
+  "source_grain": "day_station",
+  "output_grain": "day_station",
+  "confidence_field": "recommendation_confidence_final",
+  "allowed_confidence_values": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "main_screen_fields": [
+    "recommendation_confidence_final",
+    "low_confidence_action",
+    "confidence_reason"
+  ],
+  "confidence_policy": {
+    "high": "aligned_operational_signals",
+    "medium": "mixed_or_partial_operational_signals",
+    "low": "weak_or_control_required_signal"
+  },
+  "low_confidence_policy": {
+    "recommended_display_action": "check_station_state",
+    "show_station_check_message": true
+  },
+  "system_knowledge_policy": {
+    "claims_full_certainty": false,
+    "uses_probabilistic_operational_confidence": true
+  }
+}

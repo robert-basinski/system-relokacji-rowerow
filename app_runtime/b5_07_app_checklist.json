@@ -1,0 +1,41 @@
+{
+  "app_name": "aplikacja_dzien_stacja.py",
+  "model_name": "lightgbm_tuned",
+  "model_release_tag": "b4_15",
+  "scoring_date": "2020-10-31",
+  "checks": [
+    {
+      "obszar": "Tryb Latest available",
+      "status": "OK"
+    },
+    {
+      "obszar": "Tryb Selected date",
+      "status": "OK"
+    },
+    {
+      "obszar": "Runtime scored_data",
+      "status": "OK"
+    },
+    {
+      "obszar": "Filtr po stacji",
+      "status": "OK"
+    },
+    {
+      "obszar": "Filtr hub / non-hub",
+      "status": "OK"
+    },
+    {
+      "obszar": "Predykcja dodatnia",
+      "status": "OK"
+    },
+    {
+      "obszar": "Eksport CSV",
+      "status": "OK"
+    },
+    {
+      "obszar": "Panel techniczny",
+      "status": "OK"
+    }
+  ],
+  "generated_at_utc": "2026-04-22T18:07:05.510757+00:00"
+}

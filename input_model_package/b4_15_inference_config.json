@@ -1,0 +1,56 @@
+{
+  "model_name": "lightgbm_tuned",
+  "calibration_method": "raw",
+  "decision_threshold": 0.55,
+  "model_artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_best_model.joblib",
+  "feature_count": 34,
+  "input_feature_names": [
+    "alert_hours_roll_sum_14",
+    "alert_hours_lag_1",
+    "alert_severity_roll_max_7",
+    "consecutive_alert_days_before_t",
+    "alert_lag_1",
+    "alert_lag_2",
+    "alert_lag_3",
+    "alert_lag_7",
+    "deficit_alert_lag_1",
+    "high_severity_alert_last_7d",
+    "hub_flag",
+    "is_any_missing_signal",
+    "is_business_free_day",
+    "is_cold_start",
+    "is_cold_start_x_persona__commuter",
+    "is_cold_start_x_persona__mixed_other",
+    "is_cold_start_x_persona__utility_short_trip",
+    "is_first_two_weeks_station",
+    "is_first_week_station",
+    "is_holiday",
+    "is_holiday_x_hub_flag",
+    "is_long_weekend_window",
+    "is_missing_alert_history",
+    "is_missing_history",
+    "is_missing_returns_history",
+    "is_month_end",
+    "is_month_start",
+    "is_post_holiday",
+    "is_pre_holiday",
+    "is_special_day_cluster",
+    "is_weekend",
+    "is_weekend_x_persona__commuter",
+    "is_weekend_x_persona__mixed_other",
+    "is_weekend_x_persona__utility_short_trip"
+  ],
+  "input_contract_sources": {
+    "keep_cols_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/3_feature_screening/b3_13_keep_cols.parquet",
+    "model_ready_columns_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/3_feature_screening/b3_13_model_ready_columns.parquet"
+  },
+  "output_columns": [
+    "predicted_probability",
+    "predicted_label"
+  ],
+  "prediction_notes": {
+    "probability_column": "predicted_probability",
+    "label_column": "predicted_label",
+    "positive_class_definition": "target_alert_day == 1"
+  }
+}

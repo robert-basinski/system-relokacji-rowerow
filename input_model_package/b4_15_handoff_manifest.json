@@ -1,0 +1,128 @@
+{
+  "block_code": "4",
+  "block_name": "classification_model_final_handoff",
+  "project_root": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny",
+  "release_dir": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package",
+  "upstream_block3_manifest_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/3_release_package/b3_14_release_manifest.json",
+  "upstream_block3_manifest_summary": {
+    "artifact_inventory_row_count": 42,
+    "release_package_row_count": 42,
+    "primary_block4_input_count": 4,
+    "total_size_mb": 42.008756,
+    "unique_section_code_count": 14,
+    "unique_inventory_area_count": 3
+  },
+  "selected_model": {
+    "model_name": "lightgbm_tuned",
+    "calibration_method": "raw",
+    "decision_threshold": 0.55
+  },
+  "release_artifacts": {
+    "b4_15_best_model.joblib": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_best_model.joblib",
+    "b4_15_error_analysis.parquet": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_error_analysis.parquet",
+    "b4_15_feature_importance.parquet": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_feature_importance.parquet",
+    "b4_15_handoff_manifest.json": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_handoff_manifest.json",
+    "b4_15_inference_config.json": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_inference_config.json",
+    "b4_15_model_comparison_report.parquet": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_model_comparison_report.parquet",
+    "b4_15_model_registry.json": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_model_registry.json",
+    "b4_15_predictions_test.parquet": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_predictions_test.parquet",
+    "b4_15_test_metrics.parquet": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_test_metrics.parquet",
+    "b4_15_threshold_report.parquet": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_threshold_report.parquet"
+  },
+  "release_inventory": [
+    {
+      "artifact_name": "b4_15_best_model.joblib",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_best_model.joblib",
+      "relative_path": "artifacts/4_final_package/b4_15_best_model.joblib",
+      "rows": 1,
+      "cols": 1,
+      "size_mb": 0.519764
+    },
+    {
+      "artifact_name": "b4_15_error_analysis.parquet",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_error_analysis.parquet",
+      "relative_path": "artifacts/4_final_package/b4_15_error_analysis.parquet",
+      "rows": 9,
+      "cols": 21,
+      "size_mb": 0.014539
+    },
+    {
+      "artifact_name": "b4_15_feature_importance.parquet",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_feature_importance.parquet",
+      "relative_path": "artifacts/4_final_package/b4_15_feature_importance.parquet",
+      "rows": 34,
+      "cols": 16,
+      "size_mb": 0.014005
+    },
+    {
+      "artifact_name": "b4_15_handoff_manifest.json",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_handoff_manifest.json",
+      "relative_path": "artifacts/4_final_package/b4_15_handoff_manifest.json",
+      "rows": 1,
+      "cols": 11,
+      "size_mb": 0.006416
+    },
+    {
+      "artifact_name": "b4_15_inference_config.json",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_inference_config.json",
+      "relative_path": "artifacts/4_final_package/b4_15_inference_config.json",
+      "rows": 1,
+      "cols": 9,
+      "size_mb": 0.001813
+    },
+    {
+      "artifact_name": "b4_15_model_comparison_report.parquet",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_model_comparison_report.parquet",
+      "relative_path": "artifacts/4_final_package/b4_15_model_comparison_report.parquet",
+      "rows": 8,
+      "cols": 15,
+      "size_mb": 0.009919
+    },
+    {
+      "artifact_name": "b4_15_model_registry.json",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_model_registry.json",
+      "relative_path": "artifacts/4_final_package/b4_15_model_registry.json",
+      "rows": 1,
+      "cols": 10,
+      "size_mb": 0.006332
+    },
+    {
+      "artifact_name": "b4_15_predictions_test.parquet",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_predictions_test.parquet",
+      "relative_path": "artifacts/4_final_package/b4_15_predictions_test.parquet",
+      "rows": 75980,
+      "cols": 6,
+      "size_mb": 0.56259
+    },
+    {
+      "artifact_name": "b4_15_test_metrics.parquet",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_test_metrics.parquet",
+      "relative_path": "artifacts/4_final_package/b4_15_test_metrics.parquet",
+      "rows": 1,
+      "cols": 22,
+      "size_mb": 0.012885
+    },
+    {
+      "artifact_name": "b4_15_threshold_report.parquet",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/3_Model Klasyfikacyjny/artifacts/4_final_package/b4_15_threshold_report.parquet",
+      "relative_path": "artifacts/4_final_package/b4_15_threshold_report.parquet",
+      "rows": 1,
+      "cols": 22,
+      "size_mb": 0.015705
+    }
+  ],
+  "package_summary": {
+    "artifact_count": 10,
+    "total_size_mb": 1.163968,
+    "parquet_artifact_count": 6,
+    "json_artifact_count": 3,
+    "joblib_artifact_count": 1
+  },
+  "consistency_checks": {
+    "all_release_paths_exist": true,
+    "model_feature_count_matches_feature_importance": true,
+    "model_feature_set_matches_keep_cols_when_parsed": true,
+    "model_feature_set_is_subset_of_model_ready_columns_when_parsed": true,
+    "prediction_row_count_matches_test_metrics_row_count": true
+  }
+}

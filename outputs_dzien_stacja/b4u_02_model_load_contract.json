@@ -1,0 +1,246 @@
+{
+  "section_name": "4.2",
+  "model_name": "lightgbm_tuned",
+  "model_release_tag": "b4_15",
+  "calibration_method": "raw",
+  "decision_threshold": 0.55,
+  "feature_count": 34,
+  "feature_list": [
+    "alert_hours_roll_sum_14",
+    "alert_hours_lag_1",
+    "alert_severity_roll_max_7",
+    "consecutive_alert_days_before_t",
+    "alert_lag_1",
+    "alert_lag_2",
+    "alert_lag_3",
+    "alert_lag_7",
+    "deficit_alert_lag_1",
+    "high_severity_alert_last_7d",
+    "hub_flag",
+    "is_any_missing_signal",
+    "is_business_free_day",
+    "is_cold_start",
+    "is_cold_start_x_persona__commuter",
+    "is_cold_start_x_persona__mixed_other",
+    "is_cold_start_x_persona__utility_short_trip",
+    "is_first_two_weeks_station",
+    "is_first_week_station",
+    "is_holiday",
+    "is_holiday_x_hub_flag",
+    "is_long_weekend_window",
+    "is_missing_alert_history",
+    "is_missing_history",
+    "is_missing_returns_history",
+    "is_month_end",
+    "is_month_start",
+    "is_post_holiday",
+    "is_pre_holiday",
+    "is_special_day_cluster",
+    "is_weekend",
+    "is_weekend_x_persona__commuter",
+    "is_weekend_x_persona__mixed_other",
+    "is_weekend_x_persona__utility_short_trip"
+  ],
+  "model_artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_best_model.joblib",
+  "inference_config_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_inference_config.json",
+  "model_registry_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_model_registry.json",
+  "handoff_manifest_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_handoff_manifest.json",
+  "payload_summary": [
+    {
+      "payload_name": "inference_config",
+      "payload_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_inference_config.json",
+      "exists": 1,
+      "top_level_key_count": 9
+    },
+    {
+      "payload_name": "model_registry",
+      "payload_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_model_registry.json",
+      "exists": 1,
+      "top_level_key_count": 10
+    },
+    {
+      "payload_name": "handoff_manifest",
+      "payload_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_handoff_manifest.json",
+      "exists": 1,
+      "top_level_key_count": 11
+    }
+  ],
+  "inference_contract_summary": [
+    {
+      "model_name": "lightgbm_tuned",
+      "model_release_tag": "b4_15",
+      "calibration_method": "raw",
+      "decision_threshold": 0.55,
+      "feature_count": 34,
+      "model_artifact_name": "b4_15_best_model.joblib",
+      "model_file_exists": 1,
+      "contract_consistent": 1,
+      "ready_for_scoring": 1
+    }
+  ],
+  "model_object_summary": [
+    {
+      "model_name": "lightgbm_tuned",
+      "model_release_tag": "b4_15",
+      "model_class_name": "LGBMClassifier",
+      "model_module_name": "lightgbm.sklearn",
+      "decision_threshold": 0.55,
+      "feature_count_from_contract": 34,
+      "feature_count_from_object": 34,
+      "class_count": 2,
+      "has_predict": 1,
+      "has_predict_proba": 1,
+      "has_feature_names_in": 1,
+      "contract_consistent": 1,
+      "model_ready_for_inference": 1
+    }
+  ],
+  "model_classes": [
+    {
+      "class_position": 0,
+      "class_label": "0"
+    },
+    {
+      "class_position": 1,
+      "class_label": "1"
+    }
+  ],
+  "model_feature_names": [
+    {
+      "feature_position": 0,
+      "feature_name": "alert_hours_roll_sum_14"
+    },
+    {
+      "feature_position": 1,
+      "feature_name": "alert_hours_lag_1"
+    },
+    {
+      "feature_position": 2,
+      "feature_name": "alert_severity_roll_max_7"
+    },
+    {
+      "feature_position": 3,
+      "feature_name": "consecutive_alert_days_before_t"
+    },
+    {
+      "feature_position": 4,
+      "feature_name": "alert_lag_1"
+    },
+    {
+      "feature_position": 5,
+      "feature_name": "alert_lag_2"
+    },
+    {
+      "feature_position": 6,
+      "feature_name": "alert_lag_3"
+    },
+    {
+      "feature_position": 7,
+      "feature_name": "alert_lag_7"
+    },
+    {
+      "feature_position": 8,
+      "feature_name": "deficit_alert_lag_1"
+    },
+    {
+      "feature_position": 9,
+      "feature_name": "high_severity_alert_last_7d"
+    },
+    {
+      "feature_position": 10,
+      "feature_name": "hub_flag"
+    },
+    {
+      "feature_position": 11,
+      "feature_name": "is_any_missing_signal"
+    },
+    {
+      "feature_position": 12,
+      "feature_name": "is_business_free_day"
+    },
+    {
+      "feature_position": 13,
+      "feature_name": "is_cold_start"
+    },
+    {
+      "feature_position": 14,
+      "feature_name": "is_cold_start_x_persona__commuter"
+    },
+    {
+      "feature_position": 15,
+      "feature_name": "is_cold_start_x_persona__mixed_other"
+    },
+    {
+      "feature_position": 16,
+      "feature_name": "is_cold_start_x_persona__utility_short_trip"
+    },
+    {
+      "feature_position": 17,
+      "feature_name": "is_first_two_weeks_station"
+    },
+    {
+      "feature_position": 18,
+      "feature_name": "is_first_week_station"
+    },
+    {
+      "feature_position": 19,
+      "feature_name": "is_holiday"
+    },
+    {
+      "feature_position": 20,
+      "feature_name": "is_holiday_x_hub_flag"
+    },
+    {
+      "feature_position": 21,
+      "feature_name": "is_long_weekend_window"
+    },
+    {
+      "feature_position": 22,
+      "feature_name": "is_missing_alert_history"
+    },
+    {
+      "feature_position": 23,
+      "feature_name": "is_missing_history"
+    },
+    {
+      "feature_position": 24,
+      "feature_name": "is_missing_returns_history"
+    },
+    {
+      "feature_position": 25,
+      "feature_name": "is_month_end"
+    },
+    {
+      "feature_position": 26,
+      "feature_name": "is_month_start"
+    },
+    {
+      "feature_position": 27,
+      "feature_name": "is_post_holiday"
+    },
+    {
+      "feature_position": 28,
+      "feature_name": "is_pre_holiday"
+    },
+    {
+      "feature_position": 29,
+      "feature_name": "is_special_day_cluster"
+    },
+    {
+      "feature_position": 30,
+      "feature_name": "is_weekend"
+    },
+    {
+      "feature_position": 31,
+      "feature_name": "is_weekend_x_persona__commuter"
+    },
+    {
+      "feature_position": 32,
+      "feature_name": "is_weekend_x_persona__mixed_other"
+    },
+    {
+      "feature_position": 33,
+      "feature_name": "is_weekend_x_persona__utility_short_trip"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "section_name": "4.1",
+  "db_engine_name": "sqlite",
+  "db_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/db_scoring/b4u_scoring_store.sqlite",
+  "db_file_exists": 1,
+  "database_ready": 1,
+  "sqlite_version": "3.45.1",
+  "input_model_package_artifacts": [
+    {
+      "artifact_name": "b4_15_best_model.joblib",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_best_model.joblib",
+      "exists": 1
+    },
+    {
+      "artifact_name": "b4_15_inference_config.json",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_inference_config.json",
+      "exists": 1
+    },
+    {
+      "artifact_name": "b4_15_model_registry.json",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_model_registry.json",
+      "exists": 1
+    },
+    {
+      "artifact_name": "b4_15_handoff_manifest.json",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_handoff_manifest.json",
+      "exists": 1
+    },
+    {
+      "artifact_name": "b4_15_feature_importance.parquet",
+      "artifact_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_feature_importance.parquet",
+      "exists": 1
+    }
+  ],
+  "table_contract": [
+    {
+      "table_name": "scoring_input_next_day",
+      "table_role": "next_day_scoring_input",
+      "grain": "day_station",
+      "write_stage": "4.3",
+      "primary_keys": "activity_date|station_id"
+    },
+    {
+      "table_name": "predictions_next_day",
+      "table_role": "next_day_prediction_output",
+      "grain": "day_station",
+      "write_stage": "4.4",
+      "primary_keys": "activity_date|station_id|scoring_timestamp"
+    }
+  ],
+  "table_inventory": [
+    {
+      "table_name": "scoring_input_next_day",
+      "table_exists": 1,
+      "grain": "day_station",
+      "write_stage": "4.3",
+      "primary_keys": "activity_date|station_id"
+    },
+    {
+      "table_name": "predictions_next_day",
+      "table_exists": 1,
+      "grain": "day_station",
+      "write_stage": "4.4",
+      "primary_keys": "activity_date|station_id|scoring_timestamp"
+    }
+  ],
+  "table_schema": [
+    {
+      "table_name": "predictions_next_day",
+      "column_position": 0,
+      "column_name": "activity_date",
+      "column_type": "TEXT",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 1
+    },
+    {
+      "table_name": "predictions_next_day",
+      "column_position": 1,
+      "column_name": "station_id",
+      "column_type": "TEXT",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 2
+    },
+    {
+      "table_name": "predictions_next_day",
+      "column_position": 2,
+      "column_name": "scoring_timestamp",
+      "column_type": "TEXT",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 3
+    },
+    {
+      "table_name": "predictions_next_day",
+      "column_position": 3,
+      "column_name": "model_version",
+      "column_type": "TEXT",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 0
+    },
+    {
+      "table_name": "predictions_next_day",
+      "column_position": 4,
+      "column_name": "applied_threshold",
+      "column_type": "REAL",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 0
+    },
+    {
+      "table_name": "predictions_next_day",
+      "column_position": 5,
+      "column_name": "predicted_probability",
+      "column_type": "REAL",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 0
+    },
+    {
+      "table_name": "predictions_next_day",
+      "column_position": 6,
+      "column_name": "predicted_label",
+      "column_type": "INTEGER",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 0
+    },
+    {
+      "table_name": "predictions_next_day",
+      "column_position": 7,
+      "column_name": "prediction_created_at",
+      "column_type": "TEXT",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 0
+    },
+    {
+      "table_name": "scoring_input_next_day",
+      "column_position": 0,
+      "column_name": "activity_date",
+      "column_type": "TEXT",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 1
+    },
+    {
+      "table_name": "scoring_input_next_day",
+      "column_position": 1,
+      "column_name": "station_id",
+      "column_type": "TEXT",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 2
+    },
+    {
+      "table_name": "scoring_input_next_day",
+      "column_position": 2,
+      "column_name": "scoring_input_created_at",
+      "column_type": "TEXT",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 0
+    },
+    {
+      "table_name": "scoring_input_next_day",
+      "column_position": 3,
+      "column_name": "feature_payload_json",
+      "column_type": "TEXT",
+      "not_null": 1,
+      "default_value": null,
+      "primary_key_position": 0
+    }
+  ]
+}

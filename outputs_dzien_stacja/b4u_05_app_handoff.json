@@ -1,0 +1,88 @@
+{
+  "section_name": "4.5",
+  "app_file_name": "aplikacja_dzien_stacja.py",
+  "app_file_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/aplikacja_dzien_stacja.py",
+  "app_technology": "streamlit",
+  "model_name": "lightgbm_tuned",
+  "model_release_tag": "b4_15",
+  "selected_scoring_date": "2020-10-31",
+  "scoring_date_mode": "latest_available",
+  "supported_scoring_modes": [
+    "latest_available",
+    "selected_date"
+  ],
+  "available_scoring_date_min": "2017-05-02",
+  "available_scoring_date_max": "2020-10-31",
+  "available_scoring_date_count": 826,
+  "applied_threshold": 0.55,
+  "record_count": 326,
+  "station_count": 326,
+  "positive_prediction_count": 303,
+  "positive_prediction_share": 0.9294478527607362,
+  "predictions_for_app_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/outputs_dzien_stacja/b4u_05_predictions_for_app.parquet",
+  "feature_importance_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/4_Wdrozenie_i_uzycie_modelu/input_model_package/b4_15_feature_importance.parquet",
+  "app_output_columns": [
+    "activity_date",
+    "station_id",
+    "predicted_probability",
+    "predicted_label",
+    "scoring_timestamp",
+    "model_release_tag",
+    "applied_threshold",
+    "hub_flag",
+    "is_cold_start",
+    "is_holiday",
+    "is_business_free_day",
+    "alert_hours_roll_sum_14",
+    "alert_hours_lag_1",
+    "consecutive_alert_days_before_t"
+  ],
+  "context_columns": [
+    "hub_flag",
+    "is_cold_start",
+    "is_holiday",
+    "is_business_free_day",
+    "alert_hours_roll_sum_14",
+    "alert_hours_lag_1",
+    "consecutive_alert_days_before_t"
+  ],
+  "explainability_columns": [
+    "alert_hours_roll_sum_14",
+    "alert_hours_lag_1",
+    "consecutive_alert_days_before_t"
+  ],
+  "sort_order": [
+    {
+      "column": "predicted_probability",
+      "ascending": false
+    },
+    {
+      "column": "station_id",
+      "ascending": true
+    }
+  ],
+  "filters_supported": [
+    "station_id",
+    "hub_flag",
+    "predicted_label",
+    "is_cold_start",
+    "is_holiday"
+  ],
+  "technical_panel_source": {
+    "feature_importance_file": "b4_15_feature_importance.parquet",
+    "ranking_column": "consensus_rank"
+  },
+  "app_dataset_summary": [
+    {
+      "model_name": "lightgbm_tuned",
+      "model_release_tag": "b4_15",
+      "selected_scoring_date": "2020-10-31T00:00:00",
+      "record_count": 326,
+      "station_count": 326,
+      "positive_prediction_count": 303,
+      "context_column_count": 7,
+      "duplicate_key_count": 0,
+      "app_dataset_ready": 1
+    }
+  ]
+}

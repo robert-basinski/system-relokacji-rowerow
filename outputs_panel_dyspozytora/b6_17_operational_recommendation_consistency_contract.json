@@ -1,0 +1,16 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.3",
+  "contract_scope": "operational_recommendation_consistency",
+  "grain": "day_station",
+  "key_columns": [
+    "activity_date",
+    "representative_station_id"
+  ],
+  "output_field": "recommended_action",
+  "review_count": 0,
+  "observed_actions": [
+    "check_station_state",
+    "deliver_bikes"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "section":"6.13",
+  "section_name":"micro_interactions_and_daily_progress",
+  "interaction_role":"fast_operational_feedback",
+  "uses_streamlit_toast":true,
+  "uses_streamlit_progress":true,
+  "uses_streamlit_session_state":true,
+  "removes_completed_tasks_from_visible_list":true,
+  "uses_gamification":false,
+  "primary_feedback_source":"driver_task_cards",
+  "progress_denominator":"visible_driver_tasks",
+  "progress_numerator":"completed_visible_driver_tasks"
+}

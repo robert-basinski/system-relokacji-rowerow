@@ -1,0 +1,42 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.3",
+  "section_scope": "operational_recommendation_layer",
+  "source_grain": "day_station",
+  "output_grain": "day_station",
+  "source_object": "step6_32_operational_recommendation_df",
+  "output_object": "step6_34_operational_recommendation_output_df",
+  "output_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/6_Panel dyspozytora i rekomendacje relokacji rowerów/outputs_dispatcher_panel/b6_18_operational_recommendation_day_station.parquet",
+  "key_columns": [
+    "activity_date",
+    "representative_station_id"
+  ],
+  "input_field": "problem_type",
+  "output_field": "recommended_action",
+  "allowed_recommended_actions": [
+    "deliver_bikes",
+    "remove_bikes",
+    "check_station_state"
+  ],
+  "observed_recommended_actions": [
+    "check_station_state",
+    "deliver_bikes"
+  ],
+  "observed_problem_types": [
+    "bike_shortage_risk",
+    "mixed_risk"
+  ],
+  "recommendation_rules": {
+    "bike_shortage_risk": "deliver_bikes",
+    "dock_shortage_risk": "remove_bikes",
+    "mixed_risk": "check_station_state",
+    "no_clear_signal": "check_station_state"
+  },
+  "routing_scope": "station_level_recommendation",
+  "builds_global_fleet_routing": false,
+  "output_row_count": 219071,
+  "output_column_count": 20,
+  "unique_station_count": 344,
+  "duplicate_key_count": 0,
+  "consistency_review_count": 0
+}

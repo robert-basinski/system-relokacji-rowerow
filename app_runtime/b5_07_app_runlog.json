@@ -1,0 +1,14 @@
+{
+  "app_name": "aplikacja_dzien_stacja.py",
+  "model_name": "lightgbm_tuned",
+  "model_release_tag": "b4_15",
+  "scoring_mode": "latest_available",
+  "selected_scoring_date": "2020-10-31",
+  "applied_threshold": 0.55,
+  "record_count": 326,
+  "station_count": 326,
+  "positive_prediction_count": 303,
+  "positive_prediction_share": 0.9294478527607362,
+  "runtime_predictions_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/5_Aplikacja_uzytkowa_i_operacyjne_uzycie_modelu/app_runtime/b5_07_runtime_predictions.parquet",
+  "saved_at_utc": "2026-04-22T18:01:21.686852+00:00"
+}
