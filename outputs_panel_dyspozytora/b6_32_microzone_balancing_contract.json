@@ -1,0 +1,56 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.7",
+  "section_scope": "microzone_local_balancing_layer",
+  "source_object": "step6_65_daily_plan_output_df",
+  "source_grain": "day_station",
+  "output_grain": [
+    "day_microzone",
+    "day_microzone_pair"
+  ],
+  "main_use_cases": [
+    "microzone_filter",
+    "microzone_summary",
+    "local_donor_receiver_pairs"
+  ],
+  "microzone_summary_fields": [
+    "activity_date",
+    "microzone_id",
+    "stations_to_deliver",
+    "stations_to_remove",
+    "stations_to_check",
+    "estimated_deliver_units",
+    "estimated_remove_units",
+    "microzone_balance",
+    "microzone_expected_business_impact"
+  ],
+  "local_pair_fields": [
+    "activity_date",
+    "microzone_id",
+    "donor_station_id",
+    "donor_station_name",
+    "receiver_station_id",
+    "receiver_station_name",
+    "paired_relocation_units",
+    "pairing_reason",
+    "pair_expected_business_impact"
+  ],
+  "pairing_policy": {
+    "scope": "within_same_microzone",
+    "method": "local_heuristic",
+    "uses_global_fleet_optimization": false,
+    "pairing_name": "local_donor_receiver_relocation_heuristic",
+    "unit_policy": "min(donor_available_units, receiver_needed_units)"
+  },
+  "main_screen_policy": {
+    "show_microzone_filter": true,
+    "show_microzone_summary": true,
+    "show_local_pairs": true,
+    "show_global_optimization_claim": false
+  },
+  "required_join_fields": [
+    "activity_date",
+    "representative_station_id"
+  ],
+  "required_microzone_field": "microzone_id"
+}

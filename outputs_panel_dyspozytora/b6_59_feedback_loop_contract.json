@@ -1,0 +1,16 @@
+{
+  "section":"6.12",
+  "section_name":"operational_feedback_loop",
+  "feedback_role":"field_operation_feedback_capture",
+  "feedback_scope":"driver_task_and_relocation_feedback",
+  "feedback_storage_type":"json_log",
+  "feedback_log_file_name":"b6_operational_feedback_log.json",
+  "uses_new_model_training":false,
+  "uses_automatic_retraining":false,
+  "human_in_the_loop_ready":true,
+  "data_flywheel_ready":true,
+  "feedback_is_collected_only":true,
+  "source_task_layer":"b6_57_driver_task_card_layer.parquet",
+  "daily_task_layer":"b6_58_daily_driver_task_cards.parquet",
+  "feedback_status_layer":"b6_53_dispatcher_app_feedback_statuses.parquet"
+}

@@ -1,0 +1,17 @@
+{
+  "section":"6.11",
+  "section_name":"driver_task_card_view",
+  "view_role":"driver_operational_task_view",
+  "primary_user":"driver",
+  "display_mode":"cards",
+  "table_as_primary_view":false,
+  "technical_view_included":false,
+  "streamlit_container_pattern":true,
+  "streamlit_columns_pattern":true,
+  "feedback_buttons_included":true,
+  "uses_new_model_training":false,
+  "uses_live_inventory_claim":false,
+  "source_layer":"b6_45_map_station_layer.parquet",
+  "optional_pair_layer":"b6_35_microzone_local_pairs.parquet",
+  "expected_task_grain":"selected_day_station_task"
+}

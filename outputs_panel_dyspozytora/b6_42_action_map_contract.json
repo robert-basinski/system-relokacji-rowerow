@@ -1,0 +1,56 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.9",
+  "section_scope": "action_map_and_relocation_map_layer",
+  "source_object": "step6_84_confidence_output_df",
+  "pair_source_object": "step6_76_local_pair_output_df",
+  "source_grain": "day_station",
+  "pair_grain": "day_microzone_pair",
+  "map_engine": "folium",
+  "uses_google_maps_api": false,
+  "uses_external_map_api_keys": false,
+  "main_map_elements": [
+    "station_points",
+    "priority_color",
+    "problem_type_description",
+    "station_popup",
+    "local_pair_lines"
+  ],
+  "station_popup_fields": [
+    "station_name",
+    "priority_level",
+    "problem_type",
+    "recommended_action",
+    "highest_risk_hour_label",
+    "estimated_relocation_label",
+    "expected_business_impact",
+    "recommendation_confidence_final"
+  ],
+  "line_layer_policy": {
+    "line_type": "folium.PolyLine",
+    "line_scope": "local_donor_receiver_pairs",
+    "draw_lines_only_when_pairs_exist": true,
+    "uses_global_fleet_optimization": false
+  },
+  "coordinate_policy": {
+    "required_for_map_rendering": true,
+    "accepted_coordinate_fields": [
+      [
+        "station_latitude",
+        "station_longitude"
+      ],
+      [
+        "latitude",
+        "longitude"
+      ],
+      [
+        "lat",
+        "lon"
+      ],
+      [
+        "y",
+        "x"
+      ]
+    ]
+  }
+}

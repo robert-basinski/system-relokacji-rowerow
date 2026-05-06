@@ -1,0 +1,29 @@
+{
+  "application_name": "Panel dyspozytora relokacji rowerów",
+  "application_file": "aplikacja_panel_dyspozytora_rowerow.py",
+  "application_role": "single_operational_application",
+  "user_facing_block_labels_allowed": false,
+  "technical_model_panel_role": "technical_support_tab",
+  "uses_new_model_training": false,
+  "uses_live_inventory_claim": false,
+  "uses_google_maps_api": false,
+  "map_engine": "folium",
+  "main_navigation_tabs": [
+    "Plan dnia",
+    "Lista działań",
+    "Mikrostrefy",
+    "Mapa",
+    "Karta kierowcy",
+    "Szczegóły stacji",
+    "Feedback",
+    "Model i dane"
+  ],
+  "primary_user_language": "polish",
+  "main_screen_language_style": "dispatcher_operational_language",
+  "technical_language_visibility": "technical_tab_only",
+  "feedback_log_file": "b6_operational_feedback_log.json",
+  "driver_card_view": true,
+  "station_detail_view": true,
+  "operational_feedback_loop": true,
+  "daily_progress_tracking": true
+}

@@ -1,0 +1,86 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.1",
+  "section_scope": "dispatcher_decision_definition",
+  "grain": "station_decision_view",
+  "builds_new_model": false,
+  "uses_raw_model_fields_on_main_screen": false,
+  "uses_exact_live_station_inventory": false,
+  "uses_estimated_relocation": true,
+  "main_sources": {
+    "hourly_station_alert_view": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/hourly_station_alert_view.parquet",
+    "hourly_station_alert_prediction_view": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/hourly_station_alert_prediction_view.parquet",
+    "station_capacity_reference": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/station_capacity_reference.parquet"
+  },
+  "main_decision_fields": [
+    {
+      "field_name": "priority_level",
+      "display_name": "priority",
+      "allowed_values": [
+        "very_high",
+        "high",
+        "medium",
+        "low"
+      ],
+      "main_screen": true
+    },
+    {
+      "field_name": "problem_type",
+      "display_name": "risk_type",
+      "allowed_values": [
+        "bike_shortage_risk",
+        "dock_shortage_risk",
+        "mixed_risk"
+      ],
+      "main_screen": true
+    },
+    {
+      "field_name": "recommended_action",
+      "display_name": "recommended_action",
+      "allowed_values": [
+        "deliver_bikes",
+        "remove_bikes",
+        "check_station_state"
+      ],
+      "main_screen": true
+    },
+    {
+      "field_name": "highest_risk_hour",
+      "display_name": "highest_risk_hour",
+      "allowed_values": [
+        "hour_or_hour_window"
+      ],
+      "main_screen": true
+    },
+    {
+      "field_name": "estimated_relocation",
+      "display_name": "estimated_relocation",
+      "allowed_values": [
+        "estimated_range"
+      ],
+      "main_screen": true
+    },
+    {
+      "field_name": "recommendation_confidence",
+      "display_name": "recommendation_confidence",
+      "allowed_values": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "main_screen": true
+    },
+    {
+      "field_name": "decision_reason",
+      "display_name": "decision_reason",
+      "allowed_values": [
+        "business_explanation"
+      ],
+      "main_screen": true
+    }
+  ],
+  "technical_fields_hidden_from_main_screen": [
+    "predicted_probability",
+    "predicted_label"
+  ]
+}

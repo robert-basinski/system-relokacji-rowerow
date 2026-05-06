@@ -1,0 +1,17 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.7",
+  "contract_scope": "microzone_local_balancing_consistency",
+  "source_grain": "day_station",
+  "summary_grain": "day_microzone",
+  "pair_grain": "day_microzone_pair",
+  "microzone_filter_field": "microzone_id",
+  "pairing_method": "local_donor_receiver_heuristic",
+  "uses_global_fleet_optimization": false,
+  "daily_plan_rows": 219071,
+  "microzone_summary_rows": 191777,
+  "donor_rows": 0,
+  "receiver_rows": 211990,
+  "local_pair_rows": 0,
+  "consistency_review_count": 0
+}

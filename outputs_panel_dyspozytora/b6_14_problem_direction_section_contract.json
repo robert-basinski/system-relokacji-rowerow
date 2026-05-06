@@ -1,0 +1,41 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.2",
+  "section_scope": "problem_direction_layer",
+  "source_grain": "hour_station",
+  "output_grain": "day_station",
+  "source_object": "step6_24_problem_direction_hourly_df",
+  "output_object": "step6_27_problem_direction_output_df",
+  "output_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/6_Panel dyspozytora i rekomendacje relokacji rowerów/outputs_dispatcher_panel/b6_13_problem_direction_output_day_station.parquet",
+  "key_columns": [
+    "activity_date",
+    "representative_station_id"
+  ],
+  "output_field": "problem_type",
+  "observed_problem_types": [
+    "bike_shortage_risk",
+    "mixed_risk"
+  ],
+  "allowed_problem_types": [
+    "bike_shortage_risk",
+    "dock_shortage_risk",
+    "mixed_risk",
+    "no_clear_signal"
+  ],
+  "direction_logic": {
+    "bike_shortage_risk": "departure_signal_hours > 0 and return_signal_hours == 0",
+    "dock_shortage_risk": "departure_signal_hours == 0 and return_signal_hours > 0",
+    "mixed_risk": "departure_signal_hours > 0 and return_signal_hours > 0",
+    "no_clear_signal": "departure_signal_hours == 0 and return_signal_hours == 0"
+  },
+  "dispatcher_action_family_mapping": {
+    "bike_shortage_risk": "deliver_bikes",
+    "dock_shortage_risk": "remove_bikes",
+    "mixed_risk": "check_station_state",
+    "no_clear_signal": "check_station_state"
+  },
+  "daily_row_count": 219071,
+  "unique_station_count": 344,
+  "duplicate_key_count": 0,
+  "consistency_review_count": 0
+}

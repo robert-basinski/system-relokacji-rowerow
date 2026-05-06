@@ -1,0 +1,24 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.6",
+  "contract_scope": "daily_plan_consistency",
+  "grain": "day_station",
+  "key_columns": [
+    "activity_date",
+    "representative_station_id"
+  ],
+  "rank_column": "daily_plan_rank",
+  "primary_sort_column": "expected_business_impact",
+  "review_count": 0,
+  "observed_priority_levels": [
+    "high",
+    "low",
+    "medium",
+    "very_high"
+  ],
+  "observed_confidence_levels": [
+    "high",
+    "low",
+    "medium"
+  ]
+}

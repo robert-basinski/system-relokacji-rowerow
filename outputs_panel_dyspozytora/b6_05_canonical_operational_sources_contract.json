@@ -1,0 +1,13 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.1",
+  "contract_scope": "canonical_operational_sources",
+  "main_hourly_alert_source": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/station_alert_hour_df.parquet",
+  "auxiliary_hourly_prediction_source": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/station_alert_prediction_df.parquet",
+  "microzone_hourly_alert_source": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/microzone_alert_hour_df.parquet",
+  "main_grain": "hour_station",
+  "microzone_grain": "hour_microzone",
+  "uses_exact_live_inventory": false,
+  "uses_estimated_relocation": true,
+  "builds_new_model": false
+}

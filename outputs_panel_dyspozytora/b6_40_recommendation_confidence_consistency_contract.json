@@ -1,0 +1,17 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.8",
+  "contract_scope": "recommendation_confidence_consistency",
+  "source_object": "step6_82_confidence_df",
+  "source_grain": "day_station",
+  "allowed_confidence_values": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "low_confidence_action": "check_station_state",
+  "confidence_score_min": 0,
+  "confidence_score_max": 100,
+  "row_count": 219071,
+  "consistency_review_count": 0
+}

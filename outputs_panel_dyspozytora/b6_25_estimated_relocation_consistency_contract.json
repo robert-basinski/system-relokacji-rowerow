@@ -1,0 +1,19 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.5",
+  "contract_scope": "estimated_relocation_consistency",
+  "grain": "day_station",
+  "key_columns": [
+    "activity_date",
+    "representative_station_id"
+  ],
+  "review_count": 0,
+  "observed_relocation_directions": [
+    "check",
+    "deliver"
+  ],
+  "observed_recommended_actions": [
+    "check_station_state",
+    "deliver_bikes"
+  ]
+}

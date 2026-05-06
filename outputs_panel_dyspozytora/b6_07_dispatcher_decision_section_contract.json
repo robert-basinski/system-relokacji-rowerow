@@ -1,0 +1,45 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.1",
+  "section_scope": "dispatcher_decision_contract",
+  "main_goal": "define_operational_decision_fields_for_dispatcher_panel",
+  "builds_new_model": false,
+  "uses_exact_live_station_inventory": false,
+  "uses_estimated_relocation": true,
+  "uses_raw_model_fields_on_main_screen": false,
+  "decision_grain": "station_decision_view",
+  "main_hourly_grain": "hour_station",
+  "microzone_hourly_grain": "hour_microzone",
+  "required_decision_fields": [
+    "priority_level",
+    "problem_type",
+    "recommended_action",
+    "highest_risk_hour",
+    "estimated_relocation",
+    "recommendation_confidence",
+    "decision_reason"
+  ],
+  "technical_fields_hidden_from_main_screen": [
+    "predicted_probability",
+    "predicted_label"
+  ],
+  "canonical_sources": {
+    "block_name": "block_6",
+    "section_name": "6.1",
+    "contract_scope": "canonical_operational_sources",
+    "main_hourly_alert_source": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/station_alert_hour_df.parquet",
+    "auxiliary_hourly_prediction_source": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/station_alert_prediction_df.parquet",
+    "microzone_hourly_alert_source": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/microzone_alert_hour_df.parquet",
+    "main_grain": "hour_station",
+    "microzone_grain": "hour_microzone",
+    "uses_exact_live_inventory": false,
+    "uses_estimated_relocation": true,
+    "builds_new_model": false
+  },
+  "known_schema_notes": [
+    {
+      "source_role": "microzone_hourly_alert_source",
+      "note": "hour_of_day can be derived from activity_hour"
+    }
+  ]
+}

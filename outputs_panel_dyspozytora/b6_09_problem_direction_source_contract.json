@@ -1,0 +1,26 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.2",
+  "contract_scope": "problem_direction_source_columns",
+  "source_role": "main_hourly_alert_source",
+  "source_file": "station_alert_hour_df.parquet",
+  "source_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/1_Data Preprocessing/data/station_alert_hour_df.parquet",
+  "row_count": 5257704,
+  "column_count": 45,
+  "required_columns": [
+    "activity_hour",
+    "activity_date",
+    "hour_of_day",
+    "representative_station_id",
+    "station_name",
+    "departures_hourly",
+    "returns_hourly",
+    "net_flow_hour",
+    "cumulative_net_flow",
+    "estimated_capacity",
+    "occupancy_proxy",
+    "free_capacity_proxy",
+    "is_stockout_departure",
+    "is_stockout_return"
+  ]
+}

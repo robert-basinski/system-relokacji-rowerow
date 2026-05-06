@@ -1,0 +1,49 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.5",
+  "section_scope": "estimated_relocation_layer",
+  "source_grain": "day_station",
+  "output_grain": "day_station",
+  "source_object": "step6_52_estimated_relocation_df",
+  "output_object": "step6_54_estimated_relocation_output_df",
+  "output_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/6_Panel dyspozytora i rekomendacje relokacji rowerów/outputs_dispatcher_panel/b6_26_operational_recommendation_with_estimated_relocation.parquet",
+  "key_columns": [
+    "activity_date",
+    "representative_station_id"
+  ],
+  "main_output_fields": [
+    "relocation_direction",
+    "estimated_relocation_min",
+    "estimated_relocation_max",
+    "estimated_relocation_label"
+  ],
+  "technical_support_fields": [
+    "estimated_relocation_units",
+    "relocation_sanity_limit"
+  ],
+  "quantity_policy": {
+    "uses_estimated_relocation": true,
+    "uses_exact_live_inventory": false,
+    "minimum_relocation_units": 0,
+    "maximum_share_of_estimated_capacity": 0.5,
+    "range_width_units": 1
+  },
+  "sanity_policy": {
+    "estimated_relocation_units_lte_sanity_limit": true,
+    "estimated_relocation_min_gte_zero": true,
+    "estimated_relocation_max_gte_estimated_relocation_min": true
+  },
+  "observed_relocation_directions": [
+    "check",
+    "deliver"
+  ],
+  "observed_recommended_actions": [
+    "check_station_state",
+    "deliver_bikes"
+  ],
+  "output_row_count": 219071,
+  "output_column_count": 35,
+  "unique_station_count": 344,
+  "duplicate_key_count": 0,
+  "consistency_review_count": 0
+}

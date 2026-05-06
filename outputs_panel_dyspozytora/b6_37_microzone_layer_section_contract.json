@@ -1,0 +1,23 @@
+{
+  "block_name": "block_6",
+  "section_name": "6.7",
+  "section_scope": "microzone_local_balancing_layer",
+  "source_grain": "day_station",
+  "daily_plan_microzone_output_grain": "day_station",
+  "microzone_summary_output_grain": "day_microzone",
+  "local_pair_output_grain": "day_microzone_pair",
+  "daily_plan_microzone_output_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/6_Panel dyspozytora i rekomendacje relokacji rowerów/outputs_dispatcher_panel/b6_37_dispatcher_daily_plan_with_microzones.parquet",
+  "microzone_summary_output_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/6_Panel dyspozytora i rekomendacje relokacji rowerów/outputs_dispatcher_panel/b6_37_microzone_summary.parquet",
+  "local_pair_output_path": "/root/projects/6_samodzielny_projekt_koncowy_wsl/6_Panel dyspozytora i rekomendacje relokacji rowerów/outputs_dispatcher_panel/b6_37_microzone_local_pairs.parquet",
+  "microzone_filter_field": "microzone_id",
+  "pairing_method": "local_donor_receiver_heuristic",
+  "uses_global_fleet_optimization": false,
+  "daily_plan_microzone_rows": 219071,
+  "microzone_summary_rows": 191777,
+  "local_pair_rows": 0,
+  "unique_date_count": 839,
+  "unique_microzone_count": 304,
+  "donor_rows": 0,
+  "receiver_rows": 211990,
+  "consistency_review_count": 0
+}

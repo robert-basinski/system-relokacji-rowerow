@@ -1,0 +1,18 @@
+{
+  "feedback_log_version": "1.0",
+  "feedback_entries": [
+    {
+      "feedback_timestamp": "2026-05-05T09:11:41Z",
+      "activity_date": "2017-05-02 00:00:00",
+      "driver_task_id": "2017-05-02_station_30",
+      "representative_station_id": 30,
+      "station_name": "Itämerentori",
+      "microzone_id": "MZ_0045",
+      "recommended_action": "deliver_bikes",
+      "estimated_relocation_label": "deliver 18-20",
+      "feedback_status": "accepted",
+      "feedback_comment": "",
+      "feedback_source": "dispatcher_app_driver_card"
+    }
+  ]
+}
