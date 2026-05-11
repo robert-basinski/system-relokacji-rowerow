@@ -4,10 +4,7 @@ End-to-end Machine Learning and operational analytics system for predicting dail
 
 ## Live Application
 
-Streamlit Cloud:
-<a href="https://robert-basinski-system-relokacji.streamlit.app/" target="_blank">
-🚴 Open Live Streamlit Application
-</a>
+Streamlit Cloud: <a href="https://robert-basinski-system-relokacji.streamlit.app/" target="_blank">https://robert-basinski-system-relokacji.streamlit.app/</a>
 
 ## Project Overview
 
