@@ -168,8 +168,13 @@ app/
 └── 2_Panel_Techniczny.py
 
 notebooks/
-└── 5_Application_Layer.ipynb
-
+├── 1_EDA_Preprocessing.ipynb
+├── 2_Time_Series_Analysis.ipynb
+├── 3_Model_Training.ipynb
+├── 3_1_Model_Optimization.ipynb
+├── 4_Deployment_Pipeline.ipynb
+├── 5_Application_Layer.ipynb
+└── 6_Dispatcher_System.ipynb
 docs/
 └── screenshots/
 
