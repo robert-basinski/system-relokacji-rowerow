@@ -1,1 +1,27 @@
-
+{
+  "model_threshold": 0.55,
+  "priority_levels": {
+    "very_high": {
+      "label_pl": "bardzo wysoki",
+      "description": "Highest operational priority requiring dispatcher attention"
+    },
+    "high": {
+      "label_pl": "wysoki",
+      "description": "High operational priority"
+    },
+    "medium": {
+      "label_pl": "średni",
+      "description": "Moderate operational priority"
+    },
+    "low": {
+      "label_pl": "niski",
+      "description": "Low operational priority"
+    }
+  },
+  "problem_types": {
+    "bike_shortage_risk": "Risk of bike shortage",
+    "dock_shortage_risk": "Risk of dock shortage",
+    "mixed_risk": "Mixed operational risk",
+    "no_clear_signal": "No clear operational signal"
+  }
+}
