@@ -105,13 +105,6 @@ The project includes:
 - GitHub
 - Streamlit Cloud
 
-### Data & Engineering
-
-- Parquet
-- Jupyter Notebook
-- GitHub
-- Streamlit Cloud
-
 ## How to Run Locally
 
 ```bash
