@@ -185,6 +185,8 @@ README.md
 ```
 ## System Architecture
 
+👉 Full architecture diagram: [View System Architecture](docs/architecture/system_architecture.md)
+
 The project is divided into several operational and Machine Learning layers:
 
 ### Data Layer
