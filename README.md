@@ -54,7 +54,7 @@ The system predicts station-level operational risk and supports dispatchers in d
 
 ## Project Highlights
 
-- End-to-end Machine Learning and operational analytics platform
+- End-to-end ML-powered urban bike fleet management platform
 - Real operational dispatcher workflow simulation
 - Integrated technical and operational dashboard architecture
 - Time-based validation and anti-leakage ML workflow
@@ -130,15 +130,29 @@ The purpose of this approach is to demonstrate:
 
 The notebook section titles and selected explanatory comments are written in Polish to keep the analytical narrative clear and natural for the target presentation context. At the same time, the technical code structure, variable naming, data-processing logic and engineering workflow are kept in English, following common programming and Data Science conventions.
 
-The Streamlit application interface is currently written in Polish because the operational scenario is designed for a Polish-speaking dispatcher and driver workflow. The application structure, however, is modular and can be translated to English without changing the underlying ML logic, data pipeline or deployment architecture.
+The Streamlit application interface is currently written in Polish because the operational scenario is designed for a Polish-speaking dispatcher and driver workflow. The application structure is modular and can be translated to English without changing the underlying ML logic, data pipeline or deployment architecture.
 
 Rather than presenting only raw code execution, the notebooks document how analytical conclusions were reached and how operational decisions were derived from the data.
 
 Blocks `3–6` focus more on compact engineering summaries and production-oriented workflow documentation, while maintaining the same validation-first philosophy across the entire project.
 
+## Project Workflow Blocks
+
+The project is structured into six logical workflow blocks:
+
+| Block | Notebook | Purpose |
+|---|---|---|
+| 1 | `1_EDA_Preprocessing.ipynb` | Initial data analysis, preprocessing and data quality verification |
+| 2 | `2_Time_Series_Analysis.ipynb` | Time series analysis and operational demand patterns |
+| 3 | `3_Model_Training.ipynb` | Classification model training for day-station risk prediction |
+| 3.1 | `3_1_Model_Optimization.ipynb` | Model optimization, validation and feature selection |
+| 4 | `4_Deployment_Pipeline.ipynb` | Deployment pipeline, inference logic and model package preparation |
+| 5 | `5_Application_Layer.ipynb` | Streamlit application layer and technical application integration |
+| 6 | `6_Dispatcher_System.ipynb` | Dispatcher panel, relocation recommendations and operational decision support |
+
 ## Technology Stack
 
-## Core Technologies
+### Core Technologies
 
 - Python 3.12
 - Streamlit
@@ -201,15 +215,30 @@ notebooks/
 └── 6_Dispatcher_System.ipynb
 
 docs/
-└── screenshots/
+├── screenshots/
+└── architecture/
+
+config/
+├── app_config.json
+└── scoring_thresholds.json
 
 artifacts/
 └── 3_feature_screening/
 
-app_runtime/
-outputs_dzien_stacja/
-outputs_panel_dyspozytora/
 input_model_package/
+├── final model artifact
+├── inference configuration
+└── feature importance outputs
+
+outputs_dzien_stacja/
+└── technical scoring outputs for the day-station panel
+
+outputs_panel_dyspozytora/
+└── operational dispatcher panel outputs and recommendation layers
+
+app_runtime/
+└── runtime predictions, run logs and application execution metadata
+
 requirements.txt
 README.md
 ```
