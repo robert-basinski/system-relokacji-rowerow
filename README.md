@@ -47,6 +47,19 @@ This project combines:
 
 The system predicts station-level operational risk and supports dispatchers in daily relocation planning.
 
+## Project Highlights
+
+- End-to-end Machine Learning and operational analytics platform
+- Real operational dispatcher workflow simulation
+- Integrated technical and operational dashboard architecture
+- Time-based validation and anti-leakage ML workflow
+- LightGBM-based station risk classification
+- Geospatial operational monitoring with Folium
+- Streamlit production-style application layer
+- Operational KPI aggregation and recommendation system
+- Multi-layer parquet artifact architecture
+- Smart-city operational decision support system
+
 ## Main Features
 
 ### Operational Dispatcher Panel
