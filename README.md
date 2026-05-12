@@ -125,8 +125,6 @@ The application uses prepared model and operational artifacts stored in the repo
 
 ## Repository Structure
 
-## Repository Structure
-
 ```text
 app/
 ├── app_main.py
