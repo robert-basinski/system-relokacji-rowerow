@@ -12,15 +12,16 @@ st.set_page_config(
 
 
 APP_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = APP_DIR.parent
 
-OPERATIONAL_APP_PATH = APP_DIR / "aplikacja_panel_dyspozytora_rowerow.py"
-TECHNICAL_APP_PATH = APP_DIR / "aplikacja_dzien_stacja.py"
+OPERATIONAL_APP_PATH = APP_DIR / "1_Panel_Dyspozytora.py"
+TECHNICAL_APP_PATH = APP_DIR / "2_Panel_Techniczny.py"
 
 REQUIRED_LOCAL_DIRECTORIES = [
-    APP_DIR / "outputs_panel_dyspozytora",
-    APP_DIR / "outputs_dzien_stacja",
-    APP_DIR / "input_model_package",
-    APP_DIR / "artifacts",
+    PROJECT_ROOT / "outputs_panel_dyspozytora",
+    PROJECT_ROOT / "outputs_dzien_stacja",
+    PROJECT_ROOT / "input_model_package",
+    PROJECT_ROOT / "artifacts",
 ]
 
 
@@ -208,7 +209,7 @@ def render_system_info() -> None:
         [
             {
                 "Element": "Panel główny",
-                "Plik / folder": "aplikacja_glowna.py",
+                "Plik / folder": "app_main.py",
                 "Rola": "Łączy moduł operacyjny, moduł techniczny i sekcję O systemie.",
             },
             {
