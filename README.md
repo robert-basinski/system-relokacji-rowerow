@@ -1,9 +1,5 @@
 # AI-Driven Bike Fleet Relocation System
 
-End-to-end Machine Learning and operational analytics system for predicting daily bike station risk and supporting bike fleet relocation decisions in a smart city environment.
-
-# AI-Driven Bike Fleet Relocation System
-
 ![Python](https://img.shields.io/badge/Python-3.12.8-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Live-red)
 ![LightGBM](https://img.shields.io/badge/ML-LightGBM-green)
