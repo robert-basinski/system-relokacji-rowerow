@@ -1,7 +1,11 @@
 streamlit
 pandas
+numpy
 pyarrow
 joblib
 lightgbm
 scikit-learn
 folium
+streamlit-folium
+plotly
+matplotlib
