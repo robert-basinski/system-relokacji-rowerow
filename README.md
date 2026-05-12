@@ -1,5 +1,12 @@
 # AI-Driven Bike Fleet Relocation System
 
+<img src="https://img.shields.io/badge/Python-3.12.8-blue" alt="Python 3.12.8">
+<img src="https://img.shields.io/badge/Streamlit-Cloud_App-red" alt="Streamlit Cloud App">
+<img src="https://img.shields.io/badge/ML-LightGBM-green" alt="LightGBM">
+<img src="https://img.shields.io/badge/Status-Production--Style-success" alt="Production Style">
+
+# AI-Driven Bike Fleet Relocation System
+
 ![Python](https://img.shields.io/badge/Python-3.12.8-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Live-red)
 ![LightGBM](https://img.shields.io/badge/ML-LightGBM-green)
