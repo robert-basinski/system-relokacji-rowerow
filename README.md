@@ -112,6 +112,30 @@ The project includes:
 - Business-oriented evaluation
 - Operational deployment layer
 
+## Analytical Documentation Approach
+
+The project intentionally includes extensive analytical markdown documentation inside the notebooks.
+
+Blocks `1_EDA_Preprocessing.ipynb` and `2_Time_Series_Analysis.ipynb` contain detailed step-by-step analytical interpretations, validation comments and operational reasoning attached directly to the code workflow.
+
+The purpose of this approach is to demonstrate:
+
+- analytical thinking process
+- interpretation of operational and ML results
+- validation-driven workflow
+- understanding of data behavior
+- business-oriented reasoning
+- transparent decision-making process
+- technical communication skills
+
+The notebook section titles and selected explanatory comments are written in Polish to keep the analytical narrative clear and natural for the target presentation context. At the same time, the technical code structure, variable naming, data-processing logic and engineering workflow are kept in English, following common programming and Data Science conventions.
+
+The Streamlit application interface is currently written in Polish because the operational scenario is designed for a Polish-speaking dispatcher and driver workflow. The application structure, however, is modular and can be translated to English without changing the underlying ML logic, data pipeline or deployment architecture.
+
+Rather than presenting only raw code execution, the notebooks document how analytical conclusions were reached and how operational decisions were derived from the data.
+
+Blocks `3–6` focus more on compact engineering summaries and production-oriented workflow documentation, while maintaining the same validation-first philosophy across the entire project.
+
 ## Technology Stack
 
 ## Core Technologies
