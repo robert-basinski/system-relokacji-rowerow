@@ -19,23 +19,23 @@ End-to-end Machine Learning and operational analytics system for predicting dail
 
 ### Operational Plan KPIs
 
-<img src="docs/screenshots/operational-plan-kpis.png" width="850">
+<img src="docs/screenshots/operational-plan-kpis.png" width="600">
 
 ### Microzone Operations
 
-<img src="docs/screenshots/microzone-operational-table.png" width="850">
+<img src="docs/screenshots/microzone-operational-table.png" width="600">
 
 ### Station Map View
 
-<img src="docs/screenshots/station-map-view.png" width="800">
+<img src="docs/screenshots/station-map-view.png" width="600">
 
 ### Driver Card Module
 
-<img src="docs/screenshots/driver-card-module.png" width="800">
+<img src="docs/screenshots/driver-card-module.png" width="600">
 
 ### Execution Status Dashboard
 
-<img src="docs/screenshots/execution-status-dashboard.png" width="800">
+<img src="docs/screenshots/execution-status-dashboard.png" width="600">
 
 ## Project Overview
 
