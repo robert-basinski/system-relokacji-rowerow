@@ -105,6 +105,51 @@ def render_system_info() -> None:
             line-height:1.15;
             overflow-wrap:anywhere;
         }
+
+        .system-goal-grid {
+            display:grid;
+            grid-template-columns:repeat(3, minmax(0, 1fr));
+            gap:1rem;
+            margin-bottom:1.4rem;
+        }
+        .system-goal-card {
+            border:1px solid #e5e7eb;
+            border-radius:20px;
+            padding:1.1rem 1.2rem;
+            background:#ffffff;
+            box-shadow:0 10px 24px rgba(15,23,42,0.04);
+        }
+        .system-goal-card:nth-child(1) {
+            border-color:#bfdbfe;
+            border-bottom:4px solid #2563eb;
+            background:linear-gradient(135deg,#eff6ff 0%,#ffffff 70%);
+            box-shadow:0 14px 30px rgba(37,99,235,0.08);
+        }
+        .system-goal-card:nth-child(2) {
+            border-color:#bbf7d0;
+            border-bottom:4px solid #16a34a;
+            background:linear-gradient(135deg,#f0fdf4 0%,#ffffff 70%);
+            box-shadow:0 14px 30px rgba(22,163,74,0.08);
+        }
+        .system-goal-card:nth-child(3) {
+            border-color:#fed7aa;
+            border-bottom:4px solid #f97316;
+            background:linear-gradient(135deg,#fff7ed 0%,#ffffff 70%);
+            box-shadow:0 14px 30px rgba(249,115,22,0.08);
+        }
+        .system-goal-title {
+            font-size:1.15rem;
+            font-weight:900;
+            color:#0f172a;
+            margin-bottom:0.45rem;
+            line-height:1.25;
+        }
+        .system-goal-text {
+            font-size:0.95rem;
+            color:#64748b;
+            line-height:1.5;
+        }
+
         @media (max-width: 640px) {
             .system-mini-grid {
                 grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -148,7 +193,7 @@ def render_system_info() -> None:
     )
     st.markdown(
         """
-        <div style="border:1px solid #cbd5e1; border-radius:24px; background:linear-gradient(135deg,#ffffff 0%,#f8fafc 100%); padding:1.7rem 1.9rem; margin-bottom:1.4rem; box-shadow:0 16px 38px rgba(15,23,42,0.07);">
+        <div style="border:1px solid #bfdbfe; border-radius:24px; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 60%,#f8fafc 100%); padding:1.7rem 1.9rem; margin-bottom:1.4rem; box-shadow:0 18px 42px rgba(37,99,235,0.10);">
             <div style="font-size:2.15rem; font-weight:950; color:#0f172a; margin-bottom:0.55rem;">
                 O systemie
             </div>
@@ -167,18 +212,18 @@ def render_system_info() -> None:
 
     st.markdown(
         """
-        <div style="display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:1rem; margin-bottom:1.4rem;">
-            <div style="border:1px solid #e5e7eb; border-radius:20px; padding:1.1rem 1.2rem; background:#ffffff; box-shadow:0 10px 24px rgba(15,23,42,0.04);">
-                <div style="font-size:1.15rem; font-weight:900; color:#0f172a; margin-bottom:0.45rem;">Planowanie relokacji</div>
-                <div style="font-size:0.95rem; color:#64748b; line-height:1.5;">System porządkuje stacje według priorytetu, ryzyka i potencjału operacyjnego.</div>
+        <div class="system-goal-grid">
+            <div class="system-goal-card">
+                <div class="system-goal-title">Planowanie relokacji</div>
+                <div class="system-goal-text">System porządkuje stacje według priorytetu, ryzyka i potencjału operacyjnego.</div>
             </div>
-            <div style="border:1px solid #e5e7eb; border-radius:20px; padding:1.1rem 1.2rem; background:#ffffff; box-shadow:0 10px 24px rgba(15,23,42,0.04);">
-                <div style="font-size:1.15rem; font-weight:900; color:#0f172a; margin-bottom:0.45rem;">Obsługa kierowcy</div>
-                <div style="font-size:0.95rem; color:#64748b; line-height:1.5;">Karta kierowcy przekłada rekomendacje na konkretne zadania do wykonania w rejonach miasta.</div>
+            <div class="system-goal-card">
+                <div class="system-goal-title">Obsługa kierowcy</div>
+                <div class="system-goal-text">Karta kierowcy przekłada rekomendacje na konkretne zadania do wykonania w rejonach miasta.</div>
             </div>
-            <div style="border:1px solid #e5e7eb; border-radius:20px; padding:1.1rem 1.2rem; background:#ffffff; box-shadow:0 10px 24px rgba(15,23,42,0.04);">
-                <div style="font-size:1.15rem; font-weight:900; color:#0f172a; margin-bottom:0.45rem;">Kontrola realizacji</div>
-                <div style="font-size:0.95rem; color:#64748b; line-height:1.5;">Status realizacji pozwala śledzić przyjęte, wykonane i problematyczne zadania.</div>
+            <div class="system-goal-card">
+                <div class="system-goal-title">Kontrola realizacji</div>
+                <div class="system-goal-text">Status realizacji pozwala śledzić przyjęte, wykonane i problematyczne zadania.</div>
             </div>
         </div>
         """,
