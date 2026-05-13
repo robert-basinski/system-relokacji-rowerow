@@ -904,6 +904,75 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
     }
 }
 
+
+/* mobile-dispatcher-tab-description-visible-v2 */
+@media (max-width: 768px) {
+    div[data-testid="stTabs"] button[role="tab"] {
+        min-height: 168px !important;
+        height: 168px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding: 0.8rem 0.55rem 0.85rem 0.55rem !important;
+        overflow: visible !important;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"]::before {
+        position: static !important;
+        display: flex !important;
+        margin: 0 auto 0.35rem auto !important;
+        width: 2.1rem !important;
+        height: 2.1rem !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 auto !important;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"] span {
+        position: static !important;
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 0 0.45rem 0 !important;
+        padding: 0 !important;
+        flex: 0 0 auto !important;
+        z-index: 3 !important;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"]::after {
+        position: static !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 0.1rem !important;
+        color: #64748b !important;
+        font-size: 0.62rem !important;
+        font-weight: 500 !important;
+        line-height: 1.25 !important;
+        text-align: center !important;
+        white-space: pre-line !important;
+        overflow: visible !important;
+        flex: 0 0 auto !important;
+        z-index: 3 !important;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"]:nth-of-type(1)::after {
+        content: "Priorytety relokacji\\A rekomendacje działań\\A informacje na dziś." !important;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"]:nth-of-type(2)::after {
+        content: "Zadania kierowcy\\A trasa dnia\\A szczegóły relokacji." !important;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"]:nth-of-type(3)::after {
+        content: "Postęp realizacji\\A statusy zadań\\A wyniki w terenie." !important;
+    }
+}
+
 </style>
 
 <div class="dispatcher-hero">
