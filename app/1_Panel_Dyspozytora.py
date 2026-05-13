@@ -14,7 +14,9 @@ st.set_page_config(
 
 
 APP_DIR = Path(__file__).resolve().parent
-PANEL_OUTPUTS_DIR = APP_DIR / "outputs_panel_dyspozytora"
+PROJECT_DIR = APP_DIR.parent
+
+PANEL_OUTPUTS_DIR = PROJECT_DIR / "outputs_panel_dyspozytora"
 
 APP_CONTRACT_PATH = PANEL_OUTPUTS_DIR / "b6_49_dispatcher_app_contract.json"
 TAB_CONTRACT_PATH = PANEL_OUTPUTS_DIR / "b6_49_dispatcher_app_tab_contract.parquet"

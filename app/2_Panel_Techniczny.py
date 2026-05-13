@@ -14,10 +14,11 @@ st.set_page_config(
 )
 
 APP_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = APP_DIR
+PROJECT_DIR = APP_DIR.parent
+PROJECT_ROOT = PROJECT_DIR
 
-INPUT_MODEL_PACKAGE_DIR = APP_DIR / "input_model_package"
-OUTPUTS_DIR = APP_DIR / "outputs_dzien_stacja"
+INPUT_MODEL_PACKAGE_DIR = PROJECT_DIR / "input_model_package"
+OUTPUTS_DIR = PROJECT_DIR / "outputs_dzien_stacja"
 
 APP_HANDOFF_PATH = OUTPUTS_DIR / "b4u_05_app_handoff.json"
 PREDICTIONS_FOR_APP_PATH = OUTPUTS_DIR / "b4u_05_predictions_for_app.parquet"
@@ -516,11 +517,29 @@ if pd.notna(current_loaded_scoring_date):
 else:
     current_loaded_scoring_date = "brak"
 
-info_col_1, info_col_2, info_col_3, info_col_4 = st.columns(4)
-info_col_1.metric("Liczba rekordów batcha", int(preview_batch_df.shape[0]))
-info_col_2.metric("Liczba stacji", int(preview_batch_df["station_id"].nunique()))
-info_col_3.metric("Próg decyzji", f"{decision_threshold:.2f}")
-info_col_4.metric("Tryb scoringu", selected_mode_display)
+st.markdown(
+    f"""
+    <div style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:1.1rem; margin:0.4rem 0 1.2rem 0;">
+        <div style="padding:0.65rem 0.75rem; border:1px solid #e5e7eb; border-radius:14px; background:#ffffff;">
+            <div style="font-size:0.9rem; color:#374151; margin-bottom:0.35rem;">Liczba rekordów batcha</div>
+            <div style="font-size:2.05rem; font-weight:700; color:#111827; line-height:1;">{int(preview_batch_df.shape[0])}</div>
+        </div>
+        <div style="padding:0.65rem 0.75rem; border:1px solid #e5e7eb; border-radius:14px; background:#ffffff;">
+            <div style="font-size:0.9rem; color:#374151; margin-bottom:0.35rem;">Liczba stacji</div>
+            <div style="font-size:2.05rem; font-weight:700; color:#111827; line-height:1;">{int(preview_batch_df["station_id"].nunique())}</div>
+        </div>
+        <div style="padding:0.65rem 0.75rem; border:1px solid #e5e7eb; border-radius:14px; background:#ffffff;">
+            <div style="font-size:0.9rem; color:#374151; margin-bottom:0.35rem;">Próg decyzji</div>
+            <div style="font-size:2.05rem; font-weight:700; color:#111827; line-height:1;">{decision_threshold:.2f}</div>
+        </div>
+        <div style="padding:0.65rem 0.75rem; border:1px solid #e5e7eb; border-radius:14px; background:#ffffff;">
+            <div style="font-size:0.9rem; color:#374151; margin-bottom:0.35rem;">Tryb scoringu</div>
+            <div style="font-size:1.45rem; font-weight:700; color:#111827; line-height:1.1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{selected_mode_display}</div>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.markdown(f"**Model:** {model_name}")
 st.markdown(f"**Release tag:** {model_release_tag}")

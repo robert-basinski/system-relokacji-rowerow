@@ -319,6 +319,12 @@ with st.sidebar:
         label_visibility="collapsed",
     )
 
+    st.link_button(
+        "🔗 GitHub projektu",
+        "https://github.com/robert-basinski/system-relokacji-rowerow",
+        use_container_width=True,
+    )
+
     st.markdown(
         """
         <div style="height:1px; border-top:1px solid #d1d5db; margin:0.35rem 0 0.25rem 0;"></div>
