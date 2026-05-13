@@ -860,186 +860,90 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
     }
 }
 
-/* mobile-dispatcher-tab-text-v1 */
+
+
+/* mobile-dispatcher-tab-final-v6 */
 @media (max-width: 768px) {
     div[data-testid="stTabs"] button[role="tab"] {
-        min-height: 168px !important;
-        height: auto !important;
-        padding: 0.95rem 0.65rem 1.05rem 0.65rem !important;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-        overflow: visible !important;
-        gap: 0 !important;
+        position: relative !important;
+        height: 156px !important;
+        min-height: 156px !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        display: block !important;
     }
 
     div[data-testid="stTabs"] button[role="tab"]::before {
-        margin-bottom: 0.45rem !important;
+        position: absolute !important;
+        top: 0.72rem !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 1.95rem !important;
+        height: 1.95rem !important;
+        min-width: 1.95rem !important;
+        min-height: 1.95rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        font-size: 0.92rem !important;
+        line-height: 1 !important;
+        z-index: 3 !important;
     }
 
     div[data-testid="stTabs"] button[role="tab"] span {
+        position: absolute !important;
+        top: 3.08rem !important;
+        left: 0.25rem !important;
+        right: 0.25rem !important;
         display: block !important;
-        width: 100% !important;
-        margin-top: 0.1rem !important;
-        margin-bottom: 0.45rem !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 0.70rem !important;
+        font-weight: 850 !important;
+        line-height: 1.1 !important;
         text-align: center !important;
-        line-height: 1.2 !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]::after {
-        display: block !important;
-        position: static !important;
-        margin-top: 0.15rem !important;
-        font-size: 0.84rem !important;
-        line-height: 1.35 !important;
-        white-space: pre-line !important;
-        text-align: left !important;
-        color: #64748b !important;
-        width: 100% !important;
-        padding: 0 0.1rem !important;
+        color: #0f172a !important;
+        white-space: normal !important;
+        z-index: 4 !important;
     }
 
     div[data-testid="stTabs"] button[role="tab"] span::after {
-        right: 0.8rem !important;
-        bottom: 0.8rem !important;
-    }
-}
-
-
-/* mobile-dispatcher-tab-description-visible-v2 */
-@media (max-width: 768px) {
-    div[data-testid="stTabs"] button[role="tab"] {
-        min-height: 168px !important;
-        height: 168px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        padding: 0.8rem 0.55rem 0.85rem 0.55rem !important;
-        overflow: visible !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]::before {
-        position: static !important;
-        display: flex !important;
-        margin: 0 auto 0.35rem auto !important;
-        width: 2.1rem !important;
-        height: 2.1rem !important;
-        align-items: center !important;
-        justify-content: center !important;
-        flex: 0 0 auto !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"] span {
-        position: static !important;
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        margin: 0 0 0.45rem 0 !important;
-        padding: 0 !important;
-        flex: 0 0 auto !important;
-        z-index: 3 !important;
+        display: none !important;
+        content: none !important;
     }
 
     div[data-testid="stTabs"] button[role="tab"]::after {
-        position: static !important;
+        position: absolute !important;
+        top: 4.62rem !important;
+        left: 0.34rem !important;
+        right: 0.34rem !important;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 0.1rem !important;
-        color: #64748b !important;
-        font-size: 0.62rem !important;
-        font-weight: 500 !important;
-        line-height: 1.25 !important;
-        text-align: center !important;
-        white-space: pre-line !important;
-        overflow: visible !important;
-        flex: 0 0 auto !important;
-        z-index: 3 !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]:nth-of-type(1)::after {
-        content: "Zobacz priorytety relokacji,\\A rekomendacje działań i kluczowe\\A informacje na dzisiaj." !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]:nth-of-type(2)::after {
-        content: "Sprawdź swoje zadania, trasę\\A dnia i szczegóły realizacji\\A relokacji." !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]:nth-of-type(3)::after {
-        content: "Monitoruj postęp realizacji zadań\\A i analizuj wyniki działań\\A w terenie." !important;
-    }
-}
-
-
-/* mobile-dispatcher-tab-full-text-compact-v4 */
-@media (max-width: 768px) {
-    div[data-testid="stTabs"] button[role="tab"] {
-        min-height: 132px !important;
-        height: 132px !important;
-        padding: 0.55rem 0.42rem 0.52rem 0.42rem !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        overflow: hidden !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]::before {
-        position: static !important;
-        width: 1.72rem !important;
-        height: 1.72rem !important;
-        font-size: 0.88rem !important;
-        margin: 0 auto 0.22rem auto !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        flex: 0 0 auto !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"] span {
-        position: static !important;
-        display: block !important;
-        width: 100% !important;
-        margin: 0 0 0.22rem 0 !important;
-        padding: 0 !important;
-        font-size: 0.69rem !important;
-        line-height: 1.08 !important;
-        text-align: center !important;
-        white-space: normal !important;
-        flex: 0 0 auto !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]::after {
-        position: static !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
-        font-size: 0.54rem !important;
+        font-size: 0.55rem !important;
         font-weight: 500 !important;
-        line-height: 1.13 !important;
+        line-height: 1.17 !important;
         color: #64748b !important;
         text-align: center !important;
         white-space: pre-line !important;
         overflow: hidden !important;
-        flex: 0 0 auto !important;
+        z-index: 3 !important;
     }
 
     div[data-testid="stTabs"] button[role="tab"]:nth-of-type(1)::after {
-        content: "Zobacz priorytety relokacji,\\A rekomendacje działań i kluczowe\\A informacje na dzisiaj." !important;
+        content: "Zobacz priorytety relokacji,\A rekomendacje działań i kluczowe\A informacje na dzisiaj." !important;
     }
 
     div[data-testid="stTabs"] button[role="tab"]:nth-of-type(2)::after {
-        content: "Sprawdź swoje zadania, trasę\\A dnia i szczegóły realizacji\\A relokacji." !important;
+        content: "Sprawdź swoje zadania, trasę\A dnia i szczegóły realizacji\A relokacji." !important;
     }
 
     div[data-testid="stTabs"] button[role="tab"]:nth-of-type(3)::after {
-        content: "Monitoruj postęp realizacji zadań\\A i analizuj wyniki działań\\A w terenie." !important;
+        content: "Monitoruj postęp realizacji zadań\A i analizuj wyniki działań\A w terenie." !important;
     }
 }
 
