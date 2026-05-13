@@ -866,8 +866,8 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
 @media (max-width: 768px) {
     div[data-testid="stTabs"] button[role="tab"] {
         position: relative !important;
-        height: 156px !important;
-        min-height: 156px !important;
+        height: 144px !important;
+        min-height: 144px !important;
         padding: 0 !important;
         overflow: hidden !important;
         display: block !important;
@@ -875,7 +875,7 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
 
     div[data-testid="stTabs"] button[role="tab"]::before {
         position: absolute !important;
-        top: 0.72rem !important;
+        top: 0.58rem !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         width: 1.95rem !important;
@@ -893,7 +893,7 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
 
     div[data-testid="stTabs"] button[role="tab"] span {
         position: absolute !important;
-        top: 3.08rem !important;
+        top: 3.12rem !important;
         left: 0.25rem !important;
         right: 0.25rem !important;
         display: block !important;
@@ -916,7 +916,7 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
 
     div[data-testid="stTabs"] button[role="tab"]::after {
         position: absolute !important;
-        top: 4.62rem !important;
+        top: 4.55rem !important;
         left: 0.34rem !important;
         right: 0.34rem !important;
         display: block !important;
@@ -924,9 +924,9 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
         opacity: 1 !important;
         margin: 0 !important;
         padding: 0 !important;
-        font-size: 0.55rem !important;
+        font-size: 0.53rem !important;
         font-weight: 500 !important;
-        line-height: 1.17 !important;
+        line-height: 1.14 !important;
         color: #64748b !important;
         text-align: center !important;
         white-space: pre-line !important;
