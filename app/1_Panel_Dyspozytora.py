@@ -796,14 +796,14 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
     }
 
     div[data-testid="stTabs"] button[role="tab"] {
-        height: 5.55rem;
-        min-height: 5.55rem;
+        height: 9.45rem;
+        min-height: 9.45rem;
         border-radius: 13px;
         box-shadow: 0 7px 16px rgba(15, 23, 42, 0.055);
     }
 
     div[data-testid="stTabs"] button[role="tab"]::before {
-        top: 0.35rem;
+        top: 0.55rem;
         width: 1.65rem;
         height: 1.65rem;
         font-size: 0.9rem;
@@ -812,7 +812,7 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
     div[data-testid="stTabs"] button[role="tab"] p {
         left: 0.22rem;
         right: 0.22rem;
-        top: 2.62rem;
+        top: 3.42rem;
         font-size: 0.68rem;
         line-height: 1.12;
         text-align: center;
@@ -820,8 +820,18 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
     }
 
     div[data-testid="stTabs"] button[role="tab"]::after {
-        content: "" !important;
-        display: none;
+        position: absolute;
+        left: 0.34rem;
+        right: 0.34rem;
+        top: 4.78rem;
+        display: block;
+        font-size: 0.56rem;
+        font-weight: 500;
+        line-height: 1.18;
+        color: #64748b;
+        text-align: center;
+        white-space: pre-line;
+        z-index: 2;
     }
 
     div[data-testid="stTabs"] button[role="tab"] span::after {
@@ -857,93 +867,6 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
         font-size: 0.48rem;
         line-height: 1.05;
         min-height: 1.05rem;
-    }
-}
-
-
-
-/* mobile-dispatcher-tab-final-v6 */
-@media (max-width: 768px) {
-    div[data-testid="stTabs"] button[role="tab"] {
-        position: relative !important;
-        height: 162px !important;
-        min-height: 162px !important;
-        padding: 0 !important;
-        overflow: hidden !important;
-        display: block !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]::before {
-        position: absolute !important;
-        top: 0.48rem !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 1.95rem !important;
-        height: 1.95rem !important;
-        min-width: 1.95rem !important;
-        min-height: 1.95rem !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin: 0 !important;
-        font-size: 0.92rem !important;
-        line-height: 1 !important;
-        z-index: 3 !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"] span {
-        position: absolute !important;
-        top: 4.60rem !important;
-        left: 0.25rem !important;
-        right: 0.25rem !important;
-        display: block !important;
-        width: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        font-size: 0.70rem !important;
-        font-weight: 850 !important;
-        line-height: 1.1 !important;
-        text-align: center !important;
-        color: #0f172a !important;
-        white-space: normal !important;
-        z-index: 4 !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"] span::after {
-        display: none !important;
-        content: none !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]::after {
-        position: absolute !important;
-        top: 5.45rem !important;
-        left: 0.34rem !important;
-        right: 0.34rem !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        font-size: 0.57rem !important;
-        font-weight: 500 !important;
-        line-height: 1.18 !important;
-        color: #64748b !important;
-        text-align: center !important;
-        white-space: pre-line !important;
-        overflow: hidden !important;
-        z-index: 3 !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]:nth-of-type(1)::after {
-        content: "Zobacz priorytety relokacji,\A rekomendacje działań i kluczowe\A informacje na dzisiaj." !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]:nth-of-type(2)::after {
-        content: "Sprawdź swoje zadania, trasę\A dnia i szczegóły realizacji\A relokacji." !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]:nth-of-type(3)::after {
-        content: "Monitoruj postęp realizacji zadań\A i analizuj wyniki działań\A w terenie." !important;
     }
 }
 
