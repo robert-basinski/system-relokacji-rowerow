@@ -2,6 +2,7 @@ from pathlib import Path
 import re
 
 import pandas as pd
+import textwrap
 import streamlit as st
 
 
@@ -238,7 +239,7 @@ def render_system_info() -> None:
     )
     st.markdown(
         """
-        <div style="border:1px solid #bfdbfe; border-radius:24px; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 60%,#f8fafc 100%); padding:1.7rem 1.9rem; margin-bottom:1.4rem; box-shadow:0 18px 42px rgba(37,99,235,0.10);">
+        <div style="border:1px solid #cbd5e1; border-radius:24px; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 60%,#f8fafc 100%); padding:1.7rem 1.9rem; margin-bottom:1.4rem; box-shadow:0 18px 42px rgba(37,99,235,0.10);">
             <div style="font-size:2.15rem; font-weight:950; color:#0f172a; margin-bottom:0.55rem;">
                 O systemie
             </div>
@@ -305,39 +306,31 @@ def render_system_info() -> None:
 
     st.markdown("### Moduły systemu")
 
-    module_df = pd.DataFrame(
-        [
-            {
-                "Moduł": "Panel operacyjny dyspozytora",
-                "Rola": "Plan relokacji, mapa stacji, priorytety, karta kierowcy i status realizacji.",
-            },
-            {
-                "Moduł": "Panel techniczny dzień–stacja",
-                "Rola": "Scoring, predykcje, diagnostyka modelu, kontrola danych i warstwa techniczna.",
-            },
-            {
-                "Moduł": "Panel główny",
-                "Rola": "Wspólna brama wejściowa do części operacyjnej, technicznej i opisu systemu.",
-            },
-        ]
+    modules_html = (
+        '<style>'
+        '.system-modules-grid{display:grid;grid-template-columns:1fr;gap:0.48rem;margin:0.65rem 0 1.25rem 0;}'
+        '.system-module-card{border:1px solid #cbd5e1;border-radius:16px;padding:0.62rem 0.85rem;background:linear-gradient(135deg,#ffffff 0%,#f8fafc 72%);box-shadow:0 8px 18px rgba(15,23,42,0.045);}'
+        '.system-module-header{display:grid;grid-template-columns:260px 1fr;gap:1rem;align-items:start;}'
+        '.system-module-name{font-size:0.98rem;font-weight:850;color:#0f172a;line-height:1.25;}'
+        '.system-module-file{font-size:0.78rem;color:#64748b;margin-top:0.25rem;font-family:monospace;word-break:break-word;}'
+        '.system-module-role{font-size:0.95rem;color:#475569;line-height:1.5;}'
+        '@media (max-width:900px){.system-module-header{grid-template-columns:1fr;gap:0.45rem;}.system-module-card{padding:0.9rem 0.95rem;}.system-module-name{font-size:0.98rem;}.system-module-role{font-size:0.9rem;line-height:1.45;}}'
+        '</style>'
+        '<div class="system-modules-grid">'
+        '<div class="system-module-card"><div class="system-module-header"><div><div class="system-module-name">Panel operacyjny dyspozytora</div><div class="system-module-file">app/1_Panel_Dyspozytora.py</div></div><div class="system-module-role">Plan relokacji, mapa stacji, priorytety, karta kierowcy oraz status realizacji zadań.</div></div></div>'
+        '<div class="system-module-card"><div class="system-module-header"><div><div class="system-module-name">Panel techniczny dzień–stacja</div><div class="system-module-file">app/2_Panel_Techniczny.py</div></div><div class="system-module-role">Scoring, predykcje, diagnostyka modelu, kontrola danych oraz warstwa techniczna ML.</div></div></div>'
+        '<div class="system-module-card"><div class="system-module-header"><div><div class="system-module-name">Panel główny aplikacji</div><div class="system-module-file">app/app_main.py</div></div><div class="system-module-role">Wspólna brama wejściowa do części operacyjnej, technicznej oraz opisu systemu.</div></div></div>'
+        '</div>'
     )
 
-    st.dataframe(
-        module_df,
-        width="stretch",
-        hide_index=True,
-        column_config={
-            "Moduł": st.column_config.TextColumn("Moduł", width=260),
-            "Rola": st.column_config.TextColumn("Rola", width=900),
-        },
-    )
+    st.markdown(modules_html, unsafe_allow_html=True)
 
     st.markdown("### Przepływ działania")
 
     st.markdown(
         """
         <div class="system-flow-grid">
-            <div class="system-flow-card" style="border:1px solid #bfdbfe; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%); color:#0f172a;">Dane</div>
+            <div class="system-flow-card" style="border:1px solid #cbd5e1; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%); color:#0f172a;">Dane</div>
             <div class="system-flow-card" style="border:1px solid #ddd6fe; background:linear-gradient(135deg,#f5f3ff 0%,#ffffff 72%); color:#0f172a;">Walidacja</div>
             <div class="system-flow-card" style="border:1px solid #bae6fd; background:linear-gradient(135deg,#ecfeff 0%,#ffffff 72%); color:#0f172a;">Scoring</div>
             <div class="system-flow-card" style="border:1px solid #fecaca; background:linear-gradient(135deg,#fff1f2 0%,#ffffff 72%); color:#0f172a;">Priorytety</div>
@@ -350,119 +343,172 @@ def render_system_info() -> None:
 
     st.markdown("### Jak czytać aplikację")
 
-    explanation_df = pd.DataFrame(
-        [
-            {
-                "Element": "Plan operacyjny",
-                "Znaczenie": "Główny widok dyspozytora: priorytety relokacji, rejony miasta, mapa, lista stacji i szczegóły działań.",
-            },
-            {
-                "Element": "Karta kierowcy",
-                "Znaczenie": "Widok zadań terenowych: gdzie jechać, co zrobić, ile rowerów relokować i jaki jest priorytet.",
-            },
-            {
-                "Element": "Status realizacji",
-                "Znaczenie": "Historia statusów z terenu: zadania przyjęte, wykonane oraz oznaczone jako problematyczne.",
-            },
-            {
-                "Element": "Panel techniczny dzień–stacja",
-                "Znaczenie": "Techniczny moduł modelu: scoring, predykcje, dane wejściowe i kontrola działania warstwy predykcyjnej.",
-            },
-        ]
+    reading_guide_html = (
+        '<style>'
+        '.reading-guide-grid{display:grid;grid-template-columns:1fr;gap:0.48rem;margin:0.65rem 0 1.25rem 0;}'
+        '.reading-guide-card{border:1px solid #cbd5e1;border-radius:16px;padding:0.95rem 1.05rem;background:linear-gradient(135deg,#ffffff 0%,#f8fafc 72%);box-shadow:0 8px 18px rgba(15,23,42,0.045);}'
+        '.reading-guide-row{display:grid;grid-template-columns:260px 1fr;gap:1rem;align-items:start;}'
+        '.reading-guide-name{font-size:0.98rem;font-weight:850;color:#0f172a;line-height:1.25;}'
+        '.reading-guide-text{font-size:0.95rem;color:#475569;line-height:1.5;}'
+        '@media (max-width:900px){.reading-guide-row{grid-template-columns:1fr;gap:0.45rem;}.reading-guide-card{padding:0.9rem 0.95rem;}.reading-guide-name{font-size:0.98rem;}.reading-guide-text{font-size:0.9rem;line-height:1.45;}}'
+        '</style>'
+        '<div class="reading-guide-grid">'
+        '<div class="reading-guide-card"><div class="reading-guide-row"><div class="reading-guide-name">Plan operacyjny</div><div class="reading-guide-text">Główny widok dyspozytora: priorytety relokacji, rejony miasta, mapa, lista stacji oraz szczegóły działań.</div></div></div>'
+        '<div class="reading-guide-card"><div class="reading-guide-row"><div class="reading-guide-name">Karta kierowcy</div><div class="reading-guide-text">Widok zadań terenowych: gdzie jechać, co zrobić, ile rowerów relokować i jaki jest priorytet.</div></div></div>'
+        '<div class="reading-guide-card"><div class="reading-guide-row"><div class="reading-guide-name">Status realizacji</div><div class="reading-guide-text">Historia statusów z terenu: zadania przyjęte, wykonane oraz oznaczone jako problematyczne.</div></div></div>'
+        '<div class="reading-guide-card"><div class="reading-guide-row"><div class="reading-guide-name">Panel techniczny dzień–stacja</div><div class="reading-guide-text">Techniczny moduł modelu: scoring, predykcje, dane wejściowe i kontrola działania warstwy predykcyjnej.</div></div></div>'
+        '</div>'
     )
 
-    st.dataframe(
-        explanation_df,
-        width="stretch",
-        hide_index=True,
-        column_config={
-            "Element": st.column_config.TextColumn("Element", width=240),
-            "Znaczenie": st.column_config.TextColumn("Znaczenie", width=920),
-        },
-    )
+    st.markdown(reading_guide_html, unsafe_allow_html=True)
 
     st.markdown("### Struktura systemu")
 
-    structure_df = pd.DataFrame(
-        [
-            {
-                "Element": "Panel główny",
-                "Plik / folder": "app_main.py",
-                "Rola": "Łączy moduł operacyjny, moduł techniczny i sekcję O systemie.",
-            },
-            {
-                "Element": "Moduł operacyjny",
-                "Plik / folder": OPERATIONAL_APP_PATH.name,
-                "Rola": "Panel dyspozytora, karta kierowcy, status realizacji i widoki operacyjne.",
-            },
-            {
-                "Element": "Moduł techniczny",
-                "Plik / folder": TECHNICAL_APP_PATH.name,
-                "Rola": "Widok techniczny modelu, scoringu, predykcji i danych dzień–stacja.",
-            },
-            {
-                "Element": "Artefakty operacyjne",
-                "Plik / folder": "outputs_panel_dyspozytora",
-                "Rola": "Dane wykorzystywane przez panel operacyjny i widoki dyspozytora.",
-            },
-            {
-                "Element": "Artefakty dzień–stacja",
-                "Plik / folder": "outputs_dzien_stacja",
-                "Rola": "Dane i wyniki wykorzystywane przez moduł techniczny.",
-            },
-            {
-                "Element": "Pakiet modelu",
-                "Plik / folder": "input_model_package",
-                "Rola": "Zamrożone pliki modelu, konfiguracji i artefaktów scoringu.",
-            },
-            {
-                "Element": "Artefakty pomocnicze",
-                "Plik / folder": "artifacts",
-                "Rola": "Dodatkowe pliki pomocnicze aplikacji i pipeline.",
-            },
-        ]
+    structure_html = (
+        '<style>'
+        '.system-structure-grid{display:grid;grid-template-columns:1fr;gap:0.48rem;margin:0.65rem 0 1.25rem 0;}'
+        '.system-structure-card{border:1px solid #cbd5e1;border-radius:16px;padding:0.62rem 0.85rem;background:linear-gradient(135deg,#ffffff 0%,#f8fafc 72%);box-shadow:0 8px 18px rgba(15,23,42,0.045);}'
+        '.system-structure-row{display:grid;grid-template-columns:230px 250px 1fr;gap:0.75rem;align-items:start;}'
+        '.system-structure-label{font-size:0.68rem;color:#64748b;margin-bottom:0.12rem;line-height:1.2;}'
+        '.system-structure-name{font-size:0.86rem;font-weight:800;color:#0f172a;line-height:1.25;}'
+        '.system-structure-file{font-size:0.82rem;color:#334155;line-height:1.25;font-family:monospace;word-break:break-word;}'
+        '.system-structure-role{font-size:0.84rem;color:#475569;line-height:1.32;}'
+        '@media (max-width:900px){.system-structure-row{grid-template-columns:1fr;gap:0.45rem;}.system-structure-card{padding:0.72rem 0.85rem;}.system-structure-name{font-size:0.9rem;}.system-structure-file{font-size:0.8rem;}.system-structure-role{font-size:0.84rem;line-height:1.35;}}'
+        '</style>'
+        '<div class="system-structure-grid">'
+        '<div class="system-structure-card"><div class="system-structure-row"><div><div class="system-structure-label">Element</div><div class="system-structure-name">Panel główny</div></div><div><div class="system-structure-label">Plik / folder</div><div class="system-structure-file">app_main.py</div></div><div><div class="system-structure-label">Rola</div><div class="system-structure-role">Łączy moduł operacyjny, moduł techniczny i sekcję O systemie.</div></div></div></div>'
+        '<div class="system-structure-card"><div class="system-structure-row"><div><div class="system-structure-label">Element</div><div class="system-structure-name">Moduł operacyjny</div></div><div><div class="system-structure-label">Plik / folder</div><div class="system-structure-file">1_Panel_Dyspozytora.py</div></div><div><div class="system-structure-label">Rola</div><div class="system-structure-role">Panel dyspozytora, karta kierowcy, status realizacji i widoki operacyjne.</div></div></div></div>'
+        '<div class="system-structure-card"><div class="system-structure-row"><div><div class="system-structure-label">Element</div><div class="system-structure-name">Moduł techniczny</div></div><div><div class="system-structure-label">Plik / folder</div><div class="system-structure-file">2_Panel_Techniczny.py</div></div><div><div class="system-structure-label">Rola</div><div class="system-structure-role">Widok techniczny modelu, scoringu, predykcji i danych dzień–stacja.</div></div></div></div>'
+        '<div class="system-structure-card"><div class="system-structure-row"><div><div class="system-structure-label">Element</div><div class="system-structure-name">Artefakty operacyjne</div></div><div><div class="system-structure-label">Plik / folder</div><div class="system-structure-file">outputs_panel_dyspozytora</div></div><div><div class="system-structure-label">Rola</div><div class="system-structure-role">Dane wykorzystywane przez panel operacyjny i widoki dyspozytora.</div></div></div></div>'
+        '<div class="system-structure-card"><div class="system-structure-row"><div><div class="system-structure-label">Element</div><div class="system-structure-name">Artefakty dzień–stacja</div></div><div><div class="system-structure-label">Plik / folder</div><div class="system-structure-file">outputs_dzien_stacja</div></div><div><div class="system-structure-label">Rola</div><div class="system-structure-role">Dane i wyniki wykorzystywane przez moduł techniczny.</div></div></div></div>'
+        '<div class="system-structure-card"><div class="system-structure-row"><div><div class="system-structure-label">Element</div><div class="system-structure-name">Pakiet modelu</div></div><div><div class="system-structure-label">Plik / folder</div><div class="system-structure-file">input_model_package</div></div><div><div class="system-structure-label">Rola</div><div class="system-structure-role">Zamrożone pliki modelu, konfiguracji i artefaktów scoringu.</div></div></div></div>'
+        '<div class="system-structure-card"><div class="system-structure-row"><div><div class="system-structure-label">Element</div><div class="system-structure-name">Artefakty pomocnicze</div></div><div><div class="system-structure-label">Plik / folder</div><div class="system-structure-file">artifacts</div></div><div><div class="system-structure-label">Rola</div><div class="system-structure-role">Dodatkowe pliki pomocnicze aplikacji i pipeline.</div></div></div></div>'
+        '</div>'
     )
 
-    st.dataframe(
-        structure_df,
-        width="stretch",
-        hide_index=True,
-        column_config={
-            "Element": st.column_config.TextColumn("Element", width=230),
-            "Plik / folder": st.column_config.TextColumn("Plik / folder", width=310),
-            "Rola": st.column_config.TextColumn("Rola", width=720),
-        },
+    st.markdown(structure_html, unsafe_allow_html=True)
+
+    st.markdown("### Dane historyczne a wersja produkcyjna")
+
+    st.markdown(
+        """
+        <div style="border:1px solid #cbd5e1;  border-radius:18px; padding:1.05rem 1.15rem; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(37,99,235,0.06); margin:0.7rem 0 1.4rem 0;">
+            <div style="font-size:0.98rem; color:#334155; line-height:1.6;">
+                Projekt działa jako <b>production-like batch ML system</b> oparty na publicznym zbiorze danych
+                <b>Helsinki City Bikes</b>, obejmującym ponad <b>10 milionów przejazdów</b> z lat 2016–2020.
+                System nie udaje aplikacji live, ponieważ pełna wersja produkcyjna wymagałaby dostępu do
+                aktualnych danych operatora, takich jak bieżące stany rowerów, wolne miejsca, aktualne przejazdy,
+                API oraz harmonogram aktualizacji.
+                <br><br>
+                Po podłączeniu takich źródeł danych ten sam przepływ można rozwinąć do systemu produkcyjnego
+                działającego na aktualnych danych.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
     st.markdown("### Założenie wersji produkcyjnej")
 
-    prod_col_1, prod_col_2 = st.columns(2)
+    st.markdown(
+        """
+        <style>
+        .production-assumption-grid {
+            display:grid;
+            grid-template-columns:repeat(2, minmax(0, 1fr));
+            gap:1rem;
+            margin:0.9rem 0 1.4rem 0;
+        }
+        .production-assumption-card {
+            border:1px solid #e5e7eb;
+            border-radius:18px;
+            padding:1.05rem 1.15rem;
+            background:linear-gradient(135deg,#ffffff 0%,#f8fafc 100%);
+            box-shadow:0 10px 22px rgba(15,23,42,0.045);
+        }
+        .production-assumption-card:nth-child(1) {
+            border-color:#bfdbfe;
+            
+            background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%);
+        }
+        .production-assumption-card:nth-child(2) {
+            border-color:#bfdbfe;
+            
+            background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%);
+        }
+        .production-assumption-card:nth-child(3) {
+            border-color:#bfdbfe;
+            
+            background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%);
+        }
+        .production-assumption-card:nth-child(4) {
+            border-color:#bfdbfe;
+            
+            background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%);
+        }
+        .production-assumption-title {
+            font-size:1rem;
+            font-weight:850;
+            color:#0f172a;
+            margin-bottom:0.45rem;
+            line-height:1.25;
+        }
+        .production-assumption-text {
+            font-size:0.95rem;
+            color:#475569;
+            line-height:1.55;
+        }
+        @media (max-width: 900px) {
+            .production-assumption-grid {
+                grid-template-columns:1fr;
+                gap:0.8rem;
+            }
+            .production-assumption-card {
+                padding:1rem 1.05rem;
+            }
+            .production-assumption-title {
+                font-size:1rem;
+            }
+            .production-assumption-text {
+                font-size:0.9rem;
+                line-height:1.45;
+            }
+        }
+        </style>
 
-    with prod_col_1:
-        st.markdown(
-            """
-            **Dane wejściowe**  
-            System może być zasilany aktualnymi danymi o stacjach, pojemności, przejazdach,
-            pogodzie, kalendarzu i statusach technicznych.
-
-            **Pipeline**  
-            Docelowy przepływ obejmuje dane wejściowe, walidację, feature engineering,
-            scoring modelu oraz publikację rekomendacji do aplikacji.
-            """
-        )
-
-    with prod_col_2:
-        st.markdown(
-            """
-            **Monitoring**  
-            Warstwa techniczna powinna kontrolować kompletność danych, zgodność kontraktu,
-            stabilność artefaktów i jakość predykcji.
-
-            **Użycie operacyjne**  
-            Dyspozytor otrzymuje priorytety, kierowca zadania terenowe,
-            a system zapisuje status realizacji działań.
-            """
-        )
+        <div class="production-assumption-grid">
+            <div class="production-assumption-card">
+                <div class="production-assumption-title">Dane wejściowe</div>
+                <div class="production-assumption-text">
+                    System może być zasilany aktualnymi danymi o stacjach, pojemności, przejazdach,
+                    pogodzie, kalendarzu i statusach technicznych.
+                </div>
+            </div>
+            <div class="production-assumption-card">
+                <div class="production-assumption-title">Monitoring</div>
+                <div class="production-assumption-text">
+                    Warstwa techniczna powinna kontrolować kompletność danych, zgodność kontraktu,
+                    stabilność artefaktów i jakość predykcji.
+                </div>
+            </div>
+            <div class="production-assumption-card">
+                <div class="production-assumption-title">Pipeline</div>
+                <div class="production-assumption-text">
+                    Docelowy przepływ obejmuje dane wejściowe, walidację, feature engineering,
+                    scoring modelu oraz publikację rekomendacji do aplikacji.
+                </div>
+            </div>
+            <div class="production-assumption-card">
+                <div class="production-assumption-title">Użycie operacyjne</div>
+                <div class="production-assumption-text">
+                    Dyspozytor otrzymuje priorytety, kierowca zadania terenowe,
+                    a system zapisuje status realizacji działań.
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 with st.sidebar:
