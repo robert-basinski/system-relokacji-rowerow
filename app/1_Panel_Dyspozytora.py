@@ -514,7 +514,7 @@ div[data-testid="stTabs"] div[role="tablist"] {
 div[data-testid="stTabs"] button[role="tab"] {
     position: relative;
     width: 100%;
-    height: 1.8rem;
+    height: 12.2rem;
     min-height: 12.2rem;
     border: 1px solid #e5e7eb;
     border-radius: 18px;
@@ -541,7 +541,7 @@ div[data-testid="stTabs"] button[role="tab"] p {
     line-height: 1.2;
     color: #0f172a;
     text-align: left;
-    white-space: nowrap;
+    white-space: normal;
     z-index: 3;
 }
 
@@ -652,40 +652,235 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
     box-shadow: 0 18px 38px rgba(15, 23, 42, 0.10);
 }
 
-@media (max-width: 1100px) {
+.dispatcher-hero {
+    border: 1px solid #cbd5e1;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    padding: 1.25rem 1.45rem;
+    margin-bottom: 0.1rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.dispatcher-hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.dispatcher-hero-text {
+    min-width: 0;
+}
+
+.dispatcher-hero-title {
+    font-size: 2rem;
+    font-weight: 850;
+    line-height: 1.15;
+    color: #0f172a;
+    letter-spacing: -0.025em;
+    white-space: normal;
+}
+
+.dispatcher-hero-subtitle {
+    font-size: 1.02rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-top: 0.45rem;
+    white-space: normal;
+}
+
+.dispatcher-hero-visual {
+    min-width: 170px;
+    width: 170px;
+    height: 88px;
+    position: relative;
+    flex: 0 0 170px;
+}
+
+.dispatcher-hero-visual svg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 170px;
+    height: 88px;
+}
+
+.mobile-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 0.7rem 0 1rem 0;
+}
+
+.mobile-kpi-card {
+    border-radius: 18px;
+    padding: 0.95rem 1rem;
+    height: 10.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mobile-kpi-title {
+    font-size: 0.88rem;
+    color: #6b7280;
+    line-height: 1.25;
+    min-height: 2.2rem;
+}
+
+.mobile-kpi-value {
+    font-size: 2.15rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #111827;
+}
+
+.mobile-kpi-caption {
+    font-size: 0.78rem;
+    color: #6b7280;
+    line-height: 1.25;
+    min-height: 2.1rem;
+}
+
+@media (max-width: 640px) {
+    .dispatcher-hero {
+        padding: 0.75rem 0.8rem;
+        border-radius: 16px;
+        margin-bottom: 0.2rem;
+    }
+
+    .dispatcher-hero-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 72px;
+        gap: 0.45rem;
+        align-items: center;
+    }
+
+    .dispatcher-hero-title {
+        font-size: 1.02rem;
+        line-height: 1.12;
+        letter-spacing: -0.015em;
+    }
+
+    .dispatcher-hero-subtitle {
+        font-size: 0.72rem;
+        line-height: 1.25;
+        margin-top: 0.22rem;
+    }
+
+    .dispatcher-hero-visual {
+        min-width: 72px;
+        width: 72px;
+        height: 48px;
+        flex: 0 0 72px;
+    }
+
+    .dispatcher-hero-visual svg {
+        width: 92px;
+        height: 48px;
+        right: -8px;
+        bottom: 0;
+    }
+
+    div[data-testid="stTabs"] {
+        margin-top: 0.45rem;
+    }
+
     div[data-testid="stTabs"] div[role="tablist"] {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.35rem;
+        padding-bottom: 0.55rem;
+        margin-top: 0.55rem;
+        margin-bottom: 0.8rem;
+        overflow: visible;
     }
 
     div[data-testid="stTabs"] button[role="tab"] {
-        height: 14.5rem;
-        min-height: 14.5rem;
+        height: 4.9rem;
+        min-height: 4.9rem;
+        border-radius: 13px;
+        box-shadow: 0 7px 16px rgba(15, 23, 42, 0.055);
+    }
+
+    div[data-testid="stTabs"] button[role="tab"]::before {
+        top: 0.35rem;
+        width: 1.65rem;
+        height: 1.65rem;
+        font-size: 0.9rem;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"] p {
+        left: 0.22rem;
+        right: 0.22rem;
+        top: 2.25rem;
+        font-size: 0.68rem;
+        line-height: 1.12;
+        text-align: center;
+        white-space: normal;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"]::after {
+        content: "" !important;
+        display: none;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"] span::after {
+        display: none;
+    }
+
+    .mobile-kpi-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.28rem;
+        margin: 0.45rem 0 0.7rem 0;
+    }
+
+    .mobile-kpi-card {
+        border-radius: 11px;
+        padding: 0.38rem 0.22rem;
+        height: 4.8rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .mobile-kpi-title {
+        font-size: 0.54rem;
+        line-height: 1.05;
+        min-height: 1.15rem;
+    }
+
+    .mobile-kpi-value {
+        font-size: 0.95rem;
+        line-height: 1;
+    }
+
+    .mobile-kpi-caption {
+        font-size: 0.48rem;
+        line-height: 1.05;
+        min-height: 1.05rem;
     }
 }
 </style>
 
-</style>
-
-<div style="border:1px solid #cbd5e1; border-radius:22px; background:linear-gradient(135deg,#ffffff 0%,#f8fafc 100%); padding:1.25rem 1.45rem; margin-bottom:0.1rem; box-shadow:0 12px 30px rgba(15,23,42,0.06);">
-<div style="display:flex; align-items:center; justify-content:space-between; gap:1.5rem;">
-<div style="min-width:0;">
-<div style="font-size:2rem; font-weight:850; line-height:1.15; color:#0f172a; letter-spacing:-0.025em; white-space:nowrap;">Panel dyspozytora relokacji rowerów</div>
-<div style="font-size:1.02rem; color:#64748b; line-height:1.45; margin-top:0.45rem; white-space:nowrap;">Operacyjny system planowania, obsługi kierowcy i kontroli realizacji zadań.</div>
-</div>
-<div style="min-width:170px; height:88px; position:relative;">
-<svg width="170" height="88" viewBox="0 0 170 88" xmlns="http://www.w3.org/2000/svg" style="position:absolute; right:0; bottom:0;">
-<rect x="76" y="18" width="92" height="62" rx="18" fill="#f1f5f9"/>
-<rect x="112" y="32" width="17" height="48" rx="3" fill="#dbe3ec"/>
-<rect x="134" y="44" width="20" height="36" rx="3" fill="#dbe3ec"/>
-<circle cx="50" cy="62" r="18" fill="none" stroke="#334155" stroke-width="4"/>
-<circle cx="104" cy="62" r="18" fill="none" stroke="#334155" stroke-width="4"/>
-<path d="M50 62 L72 38 L90 62 L66 62 L84 42 L104 62" fill="none" stroke="#334155" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M72 38 L66 29" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
-<path d="M84 42 L100 34" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
-<path d="M98 34 H112" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
-</svg>
-</div>
-</div>
+<div class="dispatcher-hero">
+    <div class="dispatcher-hero-inner">
+        <div class="dispatcher-hero-text">
+            <div class="dispatcher-hero-title">Panel dyspozytora relokacji rowerów</div>
+            <div class="dispatcher-hero-subtitle">Operacyjny system planowania, obsługi kierowcy i kontroli realizacji zadań.</div>
+        </div>
+        <div class="dispatcher-hero-visual">
+            <svg width="170" height="88" viewBox="0 0 170 88" xmlns="http://www.w3.org/2000/svg">
+                <rect x="76" y="18" width="92" height="62" rx="18" fill="#f1f5f9"/>
+                <rect x="112" y="32" width="17" height="48" rx="3" fill="#dbe3ec"/>
+                <rect x="134" y="44" width="20" height="36" rx="3" fill="#dbe3ec"/>
+                <circle cx="50" cy="62" r="18" fill="none" stroke="#334155" stroke-width="4"/>
+                <circle cx="104" cy="62" r="18" fill="none" stroke="#334155" stroke-width="4"/>
+                <path d="M50 62 L72 38 L90 62 L66 62 L84 42 L104 62" fill="none" stroke="#334155" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M72 38 L66 29" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+                <path d="M84 42 L100 34" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+                <path d="M98 34 H112" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+        </div>
+    </div>
 </div>
 """,
     unsafe_allow_html=True,
@@ -851,16 +1046,33 @@ with tab_plan:
         },
     ]
 
-    for item_index in range(0, len(kpi_items), kpi_cards_per_row):
-        kpi_columns = st.columns(kpi_cards_per_row)
+    kpi_tone_styles = {
+        "neutral": "background:#f9fafb; border:1px solid #e5e7eb;",
+        "warning": "background:#fff7ed; border:1px solid #fed7aa;",
+        "danger": "background:#fef2f2; border:1px solid #fecaca;",
+        "success": "background:#f0fdf4; border:1px solid #bbf7d0;",
+        "info": "background:#eff6ff; border:1px solid #bfdbfe;",
+    }
 
-        for kpi_column, kpi_item in zip(
-            kpi_columns,
-            kpi_items[item_index:item_index + kpi_cards_per_row],
-        ):
-            with kpi_column:
-                render_kpi_card(**kpi_item)
+    kpi_cards_html = ""
 
+    for kpi_item in kpi_items:
+        kpi_cards_html += f"""
+            <div class="mobile-kpi-card" style="{kpi_tone_styles.get(kpi_item['tone'], kpi_tone_styles['neutral'])}">
+                <div class="mobile-kpi-title">{kpi_item['title']}</div>
+                <div class="mobile-kpi-value">{kpi_item['value']}</div>
+                <div class="mobile-kpi-caption">{kpi_item['caption']}</div>
+            </div>
+        """
+
+    st.markdown(
+        f"""
+        <div class="mobile-kpi-grid">
+            {kpi_cards_html}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
     if daily_actions_df.empty:
         st.info("Brak działań dla wybranych filtrów.")
     else:
