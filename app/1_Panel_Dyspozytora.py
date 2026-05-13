@@ -314,11 +314,11 @@ def render_daily_action_card(row: pd.Series) -> None:
 
 def render_kpi_card(title: str, value: object, caption: str, tone: str = "neutral", help_text: str | None = None) -> None:
     tone_styles = {
-        "neutral": "background:#f9fafb; border:1px solid #e5e7eb;",
-        "warning": "background:#fff7ed; border:1px solid #fed7aa;",
-        "danger": "background:#fef2f2; border:1px solid #fecaca;",
-        "success": "background:#f0fdf4; border:1px solid #bbf7d0;",
-        "info": "background:#eff6ff; border:1px solid #bfdbfe;",
+        "neutral": "background:linear-gradient(135deg,#f8fafc 0%,#ffffff 72%); border:1px solid #cbd5e1; border-bottom:3px solid #94a3b8; box-shadow:0 10px 22px rgba(100,116,139,0.06);",
+        "warning": "background:linear-gradient(135deg,#fff7ed 0%,#ffffff 72%); border:1px solid #fed7aa; border-bottom:3px solid #fdba74; box-shadow:0 10px 22px rgba(249,115,22,0.06);",
+        "danger": "background:linear-gradient(135deg,#fef2f2 0%,#ffffff 72%); border:1px solid #fecaca; border-bottom:3px solid #fca5a5; box-shadow:0 10px 22px rgba(239,68,68,0.06);",
+        "success": "background:linear-gradient(135deg,#f0fdf4 0%,#ffffff 72%); border:1px solid #bbf7d0; border-bottom:3px solid #4ade80; box-shadow:0 10px 22px rgba(22,163,74,0.06);",
+        "info": "background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%); border:1px solid #bfdbfe; border-bottom:3px solid #60a5fa; box-shadow:0 10px 22px rgba(37,99,235,0.06);",
     }
 
     card_style = tone_styles.get(tone, tone_styles["neutral"])
@@ -1047,11 +1047,11 @@ with tab_plan:
     ]
 
     kpi_tone_styles = {
-        "neutral": "background:#f9fafb; border:1px solid #e5e7eb;",
-        "warning": "background:#fff7ed; border:1px solid #fed7aa;",
-        "danger": "background:#fef2f2; border:1px solid #fecaca;",
-        "success": "background:#f0fdf4; border:1px solid #bbf7d0;",
-        "info": "background:#eff6ff; border:1px solid #bfdbfe;",
+        "neutral": "background:linear-gradient(135deg,#f8fafc 0%,#ffffff 72%); border:1px solid #cbd5e1; border-bottom:3px solid #94a3b8; box-shadow:0 10px 22px rgba(100,116,139,0.06);",
+        "warning": "background:linear-gradient(135deg,#fff7ed 0%,#ffffff 72%); border:1px solid #fed7aa; border-bottom:3px solid #fdba74; box-shadow:0 10px 22px rgba(249,115,22,0.06);",
+        "danger": "background:linear-gradient(135deg,#fef2f2 0%,#ffffff 72%); border:1px solid #fecaca; border-bottom:3px solid #fca5a5; box-shadow:0 10px 22px rgba(239,68,68,0.06);",
+        "success": "background:linear-gradient(135deg,#f0fdf4 0%,#ffffff 72%); border:1px solid #bbf7d0; border-bottom:3px solid #4ade80; box-shadow:0 10px 22px rgba(22,163,74,0.06);",
+        "info": "background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%); border:1px solid #bfdbfe; border-bottom:3px solid #60a5fa; box-shadow:0 10px 22px rgba(37,99,235,0.06);",
     }
 
     kpi_cards_html = ""
@@ -1303,22 +1303,22 @@ with tab_plan:
         st.markdown(
             f"""
             <div style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:0.7rem; margin:0.7rem 0 0.8rem 0;">
-                <div style="border:1px solid #e5e7eb; border-radius:14px; padding:0.65rem 0.85rem; background:#f9fafb;">
+                <div style="border:1px solid #cbd5e1; border-bottom:3px solid #94a3b8; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#f8fafc 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(100,116,139,0.06);">
                     <div style="font-size:0.78rem; color:#6b7280;">Stacje</div>
                     <div style="font-size:1.45rem; font-weight:800; color:#111827;">{plan_station_count}</div>
                     <div style="font-size:0.72rem; color:#6b7280;">po aktualnym wyborze</div>
                 </div>
-                <div style="border:1px solid #fed7aa; border-radius:14px; padding:0.65rem 0.85rem; background:#fff7ed;">
+                <div style="border:1px solid #fed7aa; border-bottom:3px solid #fdba74; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#fff7ed 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(249,115,22,0.06);">
                     <div style="font-size:0.78rem; color:#6b7280;">Dowieźć</div>
                     <div style="font-size:1.45rem; font-weight:800; color:#111827;">{plan_deliver_sum}</div>
                     <div style="font-size:0.72rem; color:#6b7280;">rowerów</div>
                 </div>
-                <div style="border:1px solid #bfdbfe; border-radius:14px; padding:0.65rem 0.85rem; background:#eff6ff;">
+                <div style="border:1px solid #bfdbfe; border-bottom:3px solid #60a5fa; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(37,99,235,0.06);">
                     <div style="font-size:0.78rem; color:#6b7280;">Zabrać</div>
                     <div style="font-size:1.45rem; font-weight:800; color:#111827;">{plan_remove_sum}</div>
                     <div style="font-size:0.72rem; color:#6b7280;">rowerów</div>
                 </div>
-                <div style="border:1px solid #d1d5db; border-radius:14px; padding:0.65rem 0.85rem; background:#ffffff;">
+                <div style="border:1px solid #cbd5e1; border-bottom:3px solid #64748b; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#f8fafc 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(100,116,139,0.06);">
                     <div style="font-size:0.78rem; color:#6b7280;">Bilans</div>
                     <div style="font-size:1.45rem; font-weight:800; color:#111827;">{plan_balance}</div>
                     <div style="font-size:0.72rem; color:#6b7280;">ujemny = potrzeba dowozu</div>
@@ -1678,22 +1678,22 @@ with tab_driver:
         st.markdown(
             f"""
             <div style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:0.7rem; margin:0.7rem 0 0.8rem 0;">
-                <div style="border:1px solid #e5e7eb; border-radius:14px; padding:0.65rem 0.85rem; background:#f9fafb;">
+                <div style="border:1px solid #cbd5e1; border-bottom:3px solid #94a3b8; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#f8fafc 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(100,116,139,0.06);">
                     <div style="font-size:0.78rem; color:#6b7280;">Stacje</div>
                     <div style="font-size:1.45rem; font-weight:800; color:#111827;">{driver_station_count}</div>
                     <div style="font-size:0.72rem; color:#6b7280;">do obsługi</div>
                 </div>
-                <div style="border:1px solid #fed7aa; border-radius:14px; padding:0.65rem 0.85rem; background:#fff7ed;">
+                <div style="border:1px solid #fed7aa; border-bottom:3px solid #fdba74; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#fff7ed 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(249,115,22,0.06);">
                     <div style="font-size:0.78rem; color:#6b7280;">Dowieźć</div>
                     <div style="font-size:1.45rem; font-weight:800; color:#111827;">{driver_deliver_sum}</div>
                     <div style="font-size:0.72rem; color:#6b7280;">rowerów</div>
                 </div>
-                <div style="border:1px solid #bfdbfe; border-radius:14px; padding:0.65rem 0.85rem; background:#eff6ff;">
+                <div style="border:1px solid #bfdbfe; border-bottom:3px solid #60a5fa; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(37,99,235,0.06);">
                     <div style="font-size:0.78rem; color:#6b7280;">Zabrać</div>
                     <div style="font-size:1.45rem; font-weight:800; color:#111827;">{driver_remove_sum}</div>
                     <div style="font-size:0.72rem; color:#6b7280;">rowerów</div>
                 </div>
-                <div style="border:1px solid #d1d5db; border-radius:14px; padding:0.65rem 0.85rem; background:#ffffff;">
+                <div style="border:1px solid #cbd5e1; border-bottom:3px solid #64748b; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#f8fafc 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(100,116,139,0.06);">
                     <div style="font-size:0.78rem; color:#6b7280;">Bilans</div>
                     <div style="font-size:1.45rem; font-weight:800; color:#111827;">{driver_balance}</div>
                     <div style="font-size:0.72rem; color:#6b7280;">ujemny = dowóz</div>
@@ -1973,12 +1973,12 @@ with tab_feedback:
                 st.markdown(
                     f"""
                     <div style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:0.7rem; margin:0.7rem 0 1rem 0;">
-                        <div style="border:1px solid #e5e7eb; border-radius:14px; padding:0.65rem 0.85rem; background:#f9fafb;">
+                        <div style="border:1px solid #cbd5e1; border-bottom:3px solid #94a3b8; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#f8fafc 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(100,116,139,0.06);">
                             <div style="font-size:0.78rem; color:#6b7280;">Aktywne rejony</div>
                             <div style="font-size:1.45rem; font-weight:800; color:#111827;">{total_regions}</div>
                             <div style="font-size:0.72rem; color:#6b7280;">z ruchem w terenie</div>
                         </div>
-                        <div style="border:1px solid #bfdbfe; border-radius:14px; padding:0.65rem 0.85rem; background:#eff6ff;">
+                        <div style="border:1px solid #bfdbfe; border-bottom:3px solid #60a5fa; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(37,99,235,0.06);">
                             <div style="font-size:0.78rem; color:#6b7280;">Podjęte</div>
                             <div style="font-size:1.45rem; font-weight:800; color:#111827;">{total_started}</div>
                             <div style="font-size:0.72rem; color:#6b7280;">przyjęte / wykonane / błąd</div>
@@ -1988,7 +1988,7 @@ with tab_feedback:
                             <div style="font-size:1.45rem; font-weight:800; color:#111827;">{total_done}</div>
                             <div style="font-size:0.72rem; color:#6b7280;">zamknięte zadania</div>
                         </div>
-                        <div style="border:1px solid #fed7aa; border-radius:14px; padding:0.65rem 0.85rem; background:#fff7ed;">
+                        <div style="border:1px solid #fed7aa; border-bottom:3px solid #fdba74; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#fff7ed 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(249,115,22,0.06);">
                             <div style="font-size:0.78rem; color:#6b7280;">Oczekuje</div>
                             <div style="font-size:1.45rem; font-weight:800; color:#111827;">{total_waiting}</div>
                             <div style="font-size:0.72rem; color:#6b7280;">jeszcze bez statusu</div>

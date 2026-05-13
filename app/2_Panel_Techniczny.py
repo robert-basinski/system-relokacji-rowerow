@@ -353,6 +353,112 @@ top_features_df = (
     .reset_index(drop=True)
 )
 
+
+st.markdown(
+    """
+    <style id="technical-responsive-layout-v1">
+    .technical-kpi-grid {
+        display:grid;
+        grid-template-columns:repeat(4, minmax(0, 1fr));
+        gap:1.05rem;
+        margin:0.7rem 0 1.25rem 0;
+    }
+    .technical-kpi-card {
+        padding:0.95rem 1rem;
+        border:1px solid #e5e7eb;
+        border-radius:18px;
+        background:linear-gradient(135deg,#ffffff 0%,#f8fafc 100%);
+        box-shadow:0 10px 22px rgba(15,23,42,0.045);
+        min-height:8.2rem;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+    }
+    .technical-kpi-card:nth-child(1) {
+        border-color:#bfdbfe;
+        border-bottom:3px solid #60a5fa;
+        background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%);
+    }
+    .technical-kpi-card:nth-child(2) {
+        border-color:#bbf7d0;
+        border-bottom:3px solid #4ade80;
+        background:linear-gradient(135deg,#f0fdf4 0%,#ffffff 72%);
+    }
+    .technical-kpi-card:nth-child(3) {
+        border-color:#fed7aa;
+        border-bottom:3px solid #fdba74;
+        background:linear-gradient(135deg,#fff7ed 0%,#ffffff 72%);
+    }
+    .technical-kpi-card:nth-child(4) {
+        border-color:#c7d2fe;
+        border-bottom:3px solid #818cf8;
+        background:linear-gradient(135deg,#eef2ff 0%,#ffffff 72%);
+    }
+    .technical-kpi-label {
+        font-size:0.92rem;
+        color:#4b5563;
+        line-height:1.25;
+        font-weight:650;
+        margin-bottom:0.45rem;
+    }
+    .technical-kpi-value {
+        font-size:1.95rem;
+        font-weight:800;
+        color:#0f172a;
+        line-height:1;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+
+    @media (max-width: 900px) {
+        h1 {
+            font-size:2.2rem !important;
+            line-height:1.08 !important;
+            letter-spacing:-0.03em !important;
+            margin-bottom:1rem !important;
+        }
+        h2, h3 {
+            color:#1f2937 !important;
+        }
+        div[data-testid="stTabs"] button[role="tab"] p {
+            color:#111827 !important;
+            font-size:0.82rem !important;
+            line-height:1.1 !important;
+            white-space:nowrap !important;
+        }
+        div[data-testid="stTabs"] div[role="tablist"] {
+            gap:0.12rem !important;
+        }
+        .technical-kpi-grid {
+            grid-template-columns:repeat(4, minmax(0, 1fr));
+            gap:0.45rem;
+            margin:0.75rem 0 1rem 0;
+        }
+        .technical-kpi-card {
+            border-radius:13px;
+            padding:0.62rem 0.48rem;
+            min-height:5.35rem;
+        }
+        .technical-kpi-label {
+            font-size:0.6rem;
+            line-height:1.12;
+            color:#4b5563;
+            font-weight:650;
+            margin-bottom:0.25rem;
+        }
+        .technical-kpi-value {
+            font-size:1.08rem;
+            line-height:1;
+            color:#0f172a;
+            font-weight:800;
+        }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.title("Aplikacja Dzień–Stacja")
 
 tab1, tab2, tab3 = st.tabs(
@@ -519,22 +625,22 @@ else:
 
 st.markdown(
     f"""
-    <div style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:1.1rem; margin:0.4rem 0 1.2rem 0;">
-        <div style="padding:0.65rem 0.75rem; border:1px solid #e5e7eb; border-radius:14px; background:#ffffff;">
-            <div style="font-size:0.9rem; color:#374151; margin-bottom:0.35rem;">Liczba rekordów batcha</div>
-            <div style="font-size:2.05rem; font-weight:700; color:#111827; line-height:1;">{int(preview_batch_df.shape[0])}</div>
+    <div class="technical-kpi-grid">
+        <div class="technical-kpi-card">
+            <div class="technical-kpi-label">Rekordy<br>batcha</div>
+            <div class="technical-kpi-value">{int(preview_batch_df.shape[0])}</div>
         </div>
-        <div style="padding:0.65rem 0.75rem; border:1px solid #e5e7eb; border-radius:14px; background:#ffffff;">
-            <div style="font-size:0.9rem; color:#374151; margin-bottom:0.35rem;">Liczba stacji</div>
-            <div style="font-size:2.05rem; font-weight:700; color:#111827; line-height:1;">{int(preview_batch_df["station_id"].nunique())}</div>
+        <div class="technical-kpi-card">
+            <div class="technical-kpi-label">Liczba<br>stacji</div>
+            <div class="technical-kpi-value">{int(preview_batch_df["station_id"].nunique())}</div>
         </div>
-        <div style="padding:0.65rem 0.75rem; border:1px solid #e5e7eb; border-radius:14px; background:#ffffff;">
-            <div style="font-size:0.9rem; color:#374151; margin-bottom:0.35rem;">Próg decyzji</div>
-            <div style="font-size:2.05rem; font-weight:700; color:#111827; line-height:1;">{decision_threshold:.2f}</div>
+        <div class="technical-kpi-card">
+            <div class="technical-kpi-label">Próg<br>decyzji</div>
+            <div class="technical-kpi-value">{decision_threshold:.2f}</div>
         </div>
-        <div style="padding:0.65rem 0.75rem; border:1px solid #e5e7eb; border-radius:14px; background:#ffffff;">
-            <div style="font-size:0.9rem; color:#374151; margin-bottom:0.35rem;">Tryb scoringu</div>
-            <div style="font-size:1.45rem; font-weight:700; color:#111827; line-height:1.1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{selected_mode_display}</div>
+        <div class="technical-kpi-card">
+            <div class="technical-kpi-label">Tryb<br>scoringu</div>
+            <div class="technical-kpi-value">{ {"Latest available": "Latest", "Selected date": "Selected"}.get(selected_mode_display, selected_mode_display) }</div>
         </div>
     </div>
     """,

@@ -60,7 +60,7 @@ def run_streamlit_module(module_path: Path) -> None:
 def render_system_info() -> None:
     st.markdown(
         """
-        <style id="system-mobile-fix-v1">
+        <style id="system-responsive-layout-v1">
         .system-mini-grid {
             display:grid;
             grid-template-columns:repeat(3, minmax(0, 1fr));
