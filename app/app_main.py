@@ -187,6 +187,31 @@ def render_system_info() -> None:
                 line-height:1.15;
             }
         }
+
+        @media (max-width: 900px) {
+            .system-goal-grid {
+                grid-template-columns:1fr !important;
+                gap:0.85rem !important;
+                margin-bottom:1.35rem !important;
+            }
+            .system-goal-card {
+                width:100% !important;
+                min-height:auto !important;
+                padding:1rem 1.05rem !important;
+            }
+            .system-goal-title {
+                font-size:1.08rem !important;
+                line-height:1.25 !important;
+                margin-bottom:0.45rem !important;
+                white-space:normal !important;
+            }
+            .system-goal-text {
+                font-size:0.92rem !important;
+                line-height:1.45 !important;
+                white-space:normal !important;
+            }
+        }
+
         </style>
         """,
         unsafe_allow_html=True,
