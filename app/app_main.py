@@ -78,7 +78,7 @@ def render_system_info() -> None:
         .system-mini-card:nth-child(1) {
             border-color:#bfdbfe;
             border-bottom:4px solid #2563eb;
-            background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%);
+            background:linear-gradient(135deg,#dbeafe 0%,#ffffff 72%);
             box-shadow:0 12px 28px rgba(37,99,235,0.07);
         }
         .system-mini-card:nth-child(2) {
@@ -309,7 +309,7 @@ def render_system_info() -> None:
     modules_html = (
         '<style>'
         '.system-modules-grid{display:grid;grid-template-columns:1fr;gap:0.48rem;margin:0.65rem 0 1.25rem 0;}'
-        '.system-module-card{border:1px solid #cbd5e1;border-radius:16px;padding:0.62rem 0.85rem;background:linear-gradient(135deg,#ffffff 0%,#f8fafc 72%);box-shadow:0 8px 18px rgba(15,23,42,0.045);}'
+        '.system-module-card{border:1px solid #cbd5e1;border-radius:16px;padding:0.62rem 0.85rem;background:linear-gradient(135deg,#ffffff 0%,#f8fafc 72%);box-shadow:0 6px 14px rgba(15,23,42,0.035);}'
         '.system-module-header{display:grid;grid-template-columns:260px 1fr;gap:1rem;align-items:start;}'
         '.system-module-name{font-size:0.98rem;font-weight:850;color:#0f172a;line-height:1.25;}'
         '.system-module-file{font-size:0.78rem;color:#64748b;margin-top:0.25rem;font-family:monospace;word-break:break-word;}'
@@ -543,10 +543,63 @@ with st.sidebar:
         label_visibility="collapsed",
     )
 
-    st.link_button(
-        "🔗 GitHub projektu",
-        "https://github.com/robert-basinski/system-relokacji-rowerow",
-        use_container_width=True,
+    st.markdown(
+        """
+        <style>
+        .github-project-button {
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:0.55rem;
+            width:100%;
+            min-height:2.55rem;
+            border:1px solid #cbd5e1;
+            border-radius:0.72rem;
+            background:linear-gradient(135deg,#ffffff 0%,#f8fafc 72%);
+            color:#111827 !important;
+            text-decoration:none !important;
+            font-size:0.98rem;
+            font-weight:500;
+            line-height:1.2;
+            box-shadow:0 8px 18px rgba(15,23,42,0.045);
+            animation: githubButtonGlow 2.8s ease-in-out infinite;
+            transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .github-project-button:hover {
+            transform:translateY(-1px);
+            border-color:#60a5fa;
+            box-shadow:0 10px 22px rgba(37,99,235,0.22);
+            background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%);
+        }
+
+        .github-project-icon {
+            font-size:1.05rem;
+            line-height:1;
+        }
+
+        @keyframes githubButtonGlow {
+            0% {
+                border-color:#cbd5e1;
+                box-shadow:0 8px 18px rgba(15,23,42,0.045);
+            }
+            50% {
+                border-color:#93c5fd;
+                box-shadow:0 8px 22px rgba(37,99,235,0.24);
+            }
+            100% {
+                border-color:#cbd5e1;
+                box-shadow:0 8px 18px rgba(15,23,42,0.045);
+            }
+        }
+        </style>
+
+        <a class="github-project-button" href="https://github.com/robert-basinski/system-relokacji-rowerow" target="_blank" rel="noopener noreferrer">
+            <span class="github-project-icon">🔗</span>
+            <span>GitHub projektu</span>
+        </a>
+        """,
+        unsafe_allow_html=True,
     )
 
     st.markdown(
