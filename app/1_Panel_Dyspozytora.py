@@ -2511,6 +2511,41 @@ with tab_feedback:
                 .reset_index(drop=True)
             )
 
+            history_regions_df = (
+                history_source_df.groupby("Dzień operacyjny")["microzone_id"]
+                .apply(
+                    lambda values: ", ".join(
+                        sorted(values.dropna().astype(str).unique().tolist())
+                    )
+                )
+                .reset_index()
+                .rename(columns={"microzone_id": "Rejony miasta"})
+            )
+
+            history_summary_df = history_summary_df.merge(
+                history_regions_df,
+                on="Dzień operacyjny",
+                how="left",
+            )
+
+            history_summary_df["Rejony miasta"] = (
+                history_summary_df["Rejony miasta"].fillna("").astype(str)
+            )
+
+            history_summary_df = history_summary_df[
+                [
+                    "Dzień operacyjny",
+                    "Rejony miasta",
+                    "Zgłoszenia",
+                    "Rejony",
+                    "Zadania",
+                    "Przyjęte",
+                    "Wykonane",
+                    "Błędy",
+                    "Ostatni zapis",
+                ]
+            ].copy()
+
             total_history_days = int(history_summary_df["Dzień operacyjny"].nunique())
             total_history_reports = int(history_summary_df["Zgłoszenia"].sum())
             total_history_done = int(history_summary_df["Wykonane"].sum())
@@ -2556,6 +2591,7 @@ with tab_feedback:
                 hide_index=True,
                 column_config={
                     "Dzień operacyjny": st.column_config.TextColumn("Dzień operacyjny", width=125),
+                    "Rejony miasta": st.column_config.TextColumn("Rejony miasta", width=220),
                     "Zgłoszenia": st.column_config.NumberColumn("Zgłoszenia", width=105),
                     "Rejony": st.column_config.NumberColumn("Rejony", width=85),
                     "Zadania": st.column_config.NumberColumn("Zadania", width=90),
