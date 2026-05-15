@@ -2148,6 +2148,23 @@ with tab_driver:
 with tab_feedback:
     st.subheader("Status realizacji")
 
+    status_context_html = "\n".join(
+        [
+            '<div style="border:1px solid #cbd5e1; border-bottom:4px solid #22c55e; border-radius:22px; background:linear-gradient(135deg,#f0fdf4 0%,#ffffff 72%); box-shadow:0 14px 32px rgba(22,163,74,0.06); padding:1rem 1.25rem; margin:0.45rem 0 1rem 0;">',
+            '<div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:0.55rem;">',
+            f'<div style="font-size:0.92rem; color:#64748b; font-weight:750;">Dzień operacyjny: {selected_date}</div>',
+            '<div style="border:1px solid #bbf7d0; background:#dcfce7; color:#166534; border-radius:999px; padding:0.25rem 0.65rem; font-size:0.76rem; font-weight:850; white-space:nowrap;">status zadań</div>',
+            '</div>',
+            '<div style="font-size:1.15rem; font-weight:900; color:#0f172a; line-height:1.25; margin-bottom:0.35rem;">Realizacja zadań dla wybranego dnia historycznego</div>',
+            '<div style="font-size:0.92rem; color:#64748b; line-height:1.45;">Kolumna <b>Dzień operacyjny</b> pokazuje datę zadania z danych historycznych. Kolumna <b>Czas</b> pokazuje moment kliknięcia statusu w aplikacji.</div>',
+            '</div>',
+        ]
+    )
+
+    st.markdown(status_context_html, unsafe_allow_html=True)
+
+    selected_operational_date_label = str(selected_date)
+
     feedback_entries = feedback_log.get("entries", [])
 
     if not feedback_entries:
@@ -2176,6 +2193,28 @@ with tab_feedback:
         else:
             feedback_df["_sort_time"] = pd.NaT
             feedback_df["Czas"] = ""
+
+        if "activity_date" in feedback_df.columns:
+            feedback_activity_date = pd.to_datetime(
+                feedback_df["activity_date"],
+                errors="coerce",
+            )
+
+            feedback_df["Dzień operacyjny"] = (
+                feedback_activity_date.dt.strftime("%Y-%m-%d")
+            )
+
+            feedback_df["Dzień operacyjny"] = feedback_df["Dzień operacyjny"].fillna(
+                feedback_df["activity_date"].fillna("").astype(str)
+            )
+        else:
+            feedback_df["Dzień operacyjny"] = ""
+
+        all_feedback_history_df = feedback_df.copy()
+
+        feedback_df = feedback_df.loc[
+            feedback_df["Dzień operacyjny"] == selected_operational_date_label
+        ].copy()
 
         def get_feedback_value(row: pd.Series, column_name: str, default_value: str = "") -> str:
             if column_name in row.index and pd.notna(row[column_name]):
@@ -2221,6 +2260,7 @@ with tab_feedback:
                 latest_status_map[(task_rank, station_name)] = {
                     "status": get_feedback_value(feedback_row, "status", "brak statusu"),
                     "time": get_feedback_value(feedback_row, "Czas"),
+                    "operational_date": get_feedback_value(feedback_row, "Dzień operacyjny"),
                 }
 
             status_summary_rows = []
@@ -2258,6 +2298,7 @@ with tab_feedback:
 
                 status_summary_rows.append(
                     {
+                        "Dzień operacyjny": selected_operational_date_label,
                         "Rejon miasta": region_id,
                         "Stacje w rejonie": region_total,
                         "Przyjęte": accepted_count,
@@ -2317,6 +2358,7 @@ with tab_feedback:
                     height=240,
                     hide_index=True,
                     column_config={
+                        "Dzień operacyjny": st.column_config.TextColumn("Dzień operacyjny", width=125),
                         "Rejon miasta": st.column_config.TextColumn("Rejon miasta", width=125),
                         "Stacje w rejonie": st.column_config.NumberColumn("Stacje w rejonie", width=125),
                         "Przyjęte": st.column_config.NumberColumn("Przyjęte", width=95),
@@ -2347,6 +2389,7 @@ with tab_feedback:
 
                         region_task_rows.append(
                             {
+                                "Dzień operacyjny": latest_status.get("operational_date", selected_operational_date_label),
                                 "Zadanie": format_feedback_task(task_row.get("Lp.", "")),
                                 "Stacja": task_row.get("Stacja", ""),
                                 "Status": latest_status.get("status", "oczekuje"),
@@ -2370,6 +2413,7 @@ with tab_feedback:
                             width="stretch",
                             hide_index=True,
                             column_config={
+                                "Dzień operacyjny": st.column_config.TextColumn("Dzień operacyjny", width=125),
                                 "Zadanie": st.column_config.TextColumn("Zadanie", width=100),
                                 "Stacja": st.column_config.TextColumn("Stacja", width=170),
                                 "Status": st.column_config.TextColumn("Status", width=120),
@@ -2384,6 +2428,7 @@ with tab_feedback:
 
         compact_feedback_df = pd.DataFrame(
             {
+                "Dzień operacyjny": feedback_df["Dzień operacyjny"],
                 "Czas": feedback_df["Czas"],
                 "Status": feedback_df["status"].fillna("").astype(str)
                 if "status" in feedback_df.columns
@@ -2412,6 +2457,7 @@ with tab_feedback:
             height=260,
             hide_index=True,
             column_config={
+                "Dzień operacyjny": st.column_config.TextColumn("Dzień operacyjny", width=125),
                 "Czas": st.column_config.TextColumn("Czas", width=135),
                 "Status": st.column_config.TextColumn("Status", width=120),
                 "Rejon miasta": st.column_config.TextColumn("Rejon miasta", width=120),
@@ -2421,5 +2467,103 @@ with tab_feedback:
                 "Godzina": st.column_config.TextColumn("Godzina", width=90),
             },
         )
+
+        st.markdown("### Historia realizacji — podsumowanie dni operacyjnych")
+
+        history_source_df = all_feedback_history_df.copy()
+
+        if history_source_df.empty:
+            st.info("Brak historycznych statusów realizacji.")
+        else:
+            history_source_df["status"] = (
+                history_source_df["status"].fillna("").astype(str)
+                if "status" in history_source_df.columns
+                else ""
+            )
+
+            history_source_df["is_accepted"] = history_source_df["status"].eq("przyjęte").astype(int)
+            history_source_df["is_done"] = history_source_df["status"].eq("wykonane").astype(int)
+            history_source_df["is_issue"] = history_source_df["status"].eq("błąd w terenie").astype(int)
+
+            history_summary_df = (
+                history_source_df.groupby("Dzień operacyjny", as_index=False)
+                .agg(
+                    zgłoszenia=("status", "count"),
+                    rejony=("microzone_id", "nunique"),
+                    zadania=("task_rank", "nunique"),
+                    przyjęte=("is_accepted", "sum"),
+                    wykonane=("is_done", "sum"),
+                    błędy=("is_issue", "sum"),
+                    ostatni_zapis=("Czas", "max"),
+                )
+                .rename(
+                    columns={
+                        "zgłoszenia": "Zgłoszenia",
+                        "rejony": "Rejony",
+                        "zadania": "Zadania",
+                        "przyjęte": "Przyjęte",
+                        "wykonane": "Wykonane",
+                        "błędy": "Błędy",
+                        "ostatni_zapis": "Ostatni zapis",
+                    }
+                )
+                .sort_values("Dzień operacyjny", ascending=False)
+                .reset_index(drop=True)
+            )
+
+            total_history_days = int(history_summary_df["Dzień operacyjny"].nunique())
+            total_history_reports = int(history_summary_df["Zgłoszenia"].sum())
+            total_history_done = int(history_summary_df["Wykonane"].sum())
+            total_history_issues = int(history_summary_df["Błędy"].sum())
+
+            st.markdown(
+                f"""
+                <div style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:0.7rem; margin:0.7rem 0 1rem 0;">
+                    <div style="border:1px solid #cbd5e1; border-bottom:3px solid #94a3b8; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#f8fafc 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(100,116,139,0.06);">
+                        <div style="font-size:0.78rem; color:#6b7280;">Dni operacyjne</div>
+                        <div style="font-size:1.45rem; font-weight:800; color:#111827;">{total_history_days}</div>
+                        <div style="font-size:0.72rem; color:#6b7280;">z historią działań</div>
+                    </div>
+                    <div style="border:1px solid #bfdbfe; border-bottom:3px solid #60a5fa; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#eff6ff 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(37,99,235,0.06);">
+                        <div style="font-size:0.78rem; color:#6b7280;">Zgłoszenia</div>
+                        <div style="font-size:1.45rem; font-weight:800; color:#111827;">{total_history_reports}</div>
+                        <div style="font-size:0.72rem; color:#6b7280;">łącznie w historii</div>
+                    </div>
+                    <div style="border:1px solid #bbf7d0; border-bottom:3px solid #22c55e; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#f0fdf4 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(22,163,74,0.06);">
+                        <div style="font-size:0.78rem; color:#6b7280;">Wykonane</div>
+                        <div style="font-size:1.45rem; font-weight:800; color:#111827;">{total_history_done}</div>
+                        <div style="font-size:0.72rem; color:#6b7280;">zamknięte zadania</div>
+                    </div>
+                    <div style="border:1px solid #fecaca; border-bottom:3px solid #fca5a5; border-radius:14px; padding:0.65rem 0.85rem; background:linear-gradient(135deg,#fef2f2 0%,#ffffff 72%); box-shadow:0 10px 22px rgba(239,68,68,0.06);">
+                        <div style="font-size:0.78rem; color:#6b7280;">Błędy</div>
+                        <div style="font-size:1.45rem; font-weight:800; color:#111827;">{total_history_issues}</div>
+                        <div style="font-size:0.72rem; color:#6b7280;">problemy w terenie</div>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+            st.caption(
+                "To jest zbiorcza historia demo z różnych dni operacyjnych. "
+                "Bieżące kliknięcia użytkownika działają tylko w jego sesji i resetują się po odświeżeniu."
+            )
+
+            st.dataframe(
+                history_summary_df.head(12),
+                width="stretch",
+                height=260,
+                hide_index=True,
+                column_config={
+                    "Dzień operacyjny": st.column_config.TextColumn("Dzień operacyjny", width=125),
+                    "Zgłoszenia": st.column_config.NumberColumn("Zgłoszenia", width=105),
+                    "Rejony": st.column_config.NumberColumn("Rejony", width=85),
+                    "Zadania": st.column_config.NumberColumn("Zadania", width=90),
+                    "Przyjęte": st.column_config.NumberColumn("Przyjęte", width=95),
+                    "Wykonane": st.column_config.NumberColumn("Wykonane", width=100),
+                    "Błędy": st.column_config.NumberColumn("Błędy", width=80),
+                    "Ostatni zapis": st.column_config.TextColumn("Ostatni zapis", width=135),
+                },
+            )
 
 
