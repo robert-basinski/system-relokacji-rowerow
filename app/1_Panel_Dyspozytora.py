@@ -31,6 +31,7 @@ ACTION_MAP_HTML_PATH = PANEL_OUTPUTS_DIR / "b6_47_action_map_top50.html"
 DRIVER_TASK_LAYER_PATH = PANEL_OUTPUTS_DIR / "b6_57_driver_task_card_layer.parquet"
 DAILY_DRIVER_CARDS_PATH = PANEL_OUTPUTS_DIR / "b6_58_daily_driver_task_cards.parquet"
 FEEDBACK_LOG_PATH = PANEL_OUTPUTS_DIR / "b6_operational_feedback_log.json"
+FEEDBACK_STATE_KEY = "operational_feedback_log"
 
 
 @st.cache_data
@@ -46,18 +47,31 @@ def save_json_data(path: Path, data: dict) -> None:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
-def append_feedback_entry(entry: dict) -> None:
-    if FEEDBACK_LOG_PATH.exists():
-        feedback_data = load_json_data(str(FEEDBACK_LOG_PATH))
-    else:
-        feedback_data = {"entries": []}
 
-    feedback_entries = feedback_data.get("entries", [])
+def initialize_feedback_log() -> dict:
+    if FEEDBACK_STATE_KEY not in st.session_state:
+        if FEEDBACK_LOG_PATH.exists():
+            base_feedback_log = load_json_data(str(FEEDBACK_LOG_PATH))
+        else:
+            base_feedback_log = {"entries": []}
+
+        st.session_state[FEEDBACK_STATE_KEY] = {
+            "entries": list(base_feedback_log.get("entries", []))
+        }
+
+    return st.session_state[FEEDBACK_STATE_KEY]
+
+
+def append_feedback_entry(entry: dict) -> None:
+    feedback_data = initialize_feedback_log()
+    feedback_entries = list(feedback_data.get("entries", []))
+
     feedback_entries.append(entry)
     feedback_data["entries"] = feedback_entries
 
-    save_json_data(FEEDBACK_LOG_PATH, feedback_data)
-    load_json_data.clear()
+    st.session_state[FEEDBACK_STATE_KEY] = feedback_data
+
+
 
 def build_feedback_entry(status: str, row: pd.Series, selected_date: object) -> dict:
     return {
@@ -469,7 +483,7 @@ local_pairs_df = load_parquet_data(str(LOCAL_PAIRS_PATH))
 relocation_line_df = load_parquet_data(str(RELOCATION_LINE_LAYER_PATH))
 driver_task_df = load_parquet_data(str(DRIVER_TASK_LAYER_PATH))
 daily_driver_cards_df = load_parquet_data(str(DAILY_DRIVER_CARDS_PATH))
-feedback_log = load_json_data(str(FEEDBACK_LOG_PATH))
+feedback_log = initialize_feedback_log()
 
 map_station_df["activity_date"] = pd.to_datetime(
     map_station_df["activity_date"],
